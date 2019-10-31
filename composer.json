@@ -1,0 +1,7 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "paquettg/php-html-parser": "^2.1",
+        "nesk/puphpeteer": "^1.6"
+    }
+}
