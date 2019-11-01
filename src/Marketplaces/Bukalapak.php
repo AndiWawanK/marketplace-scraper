@@ -66,18 +66,23 @@ class Bukalapak
         foreach($links as $go){
             $page->goto($go);
             $prds = $page->evaluate(JsFunction::createWithBody('
-                let images = []
-                document.querySelectorAll(".js-product-image-gallery__main > .js-product-image-gallery__image").forEach(el => {
-                    images.push(el.getAttribute("href"))
+                let gambar = []
+                let kurir = []
+                document.querySelectorAll(".js-product-image-gallery__main > .js-product-image-gallery__image").forEach(img => {
+                    gambar.push(img.getAttribute("href"))
                 });
+                document.querySelectorAll(".qa-seller-shipping-courier-value > span").forEach(kur => {
+                    kurir.push(kur.getAttribute("title"))
+                });
+                
                 
                 return {
                     "kategori": document.querySelectorAll(".c-breadcrumb > .c-breadcrumb__item > .c-breadcrumb__link")[1].innerText,
                     "nama": document.querySelector(".c-product-detail__name").innerText,
                     "deskripsi": document.querySelector(".js-collapsible-product-detail > p").innerText,
                     "keterangan": "Unvailable",
-                    "foto_produk": images
-            
+                    "foto_produk": gambar,
+                    "kurir": kurir
                 }
             '));
             var_dump($prds);
