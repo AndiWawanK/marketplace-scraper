@@ -66,6 +66,7 @@ class Bukalapak
         foreach($links as $go){
             $page->goto($go);
             $prds = $page->evaluate(JsFunction::createWithBody('
+                let current_datetime = new Date()
                 let gambar = []
                 let kurir = []
                 document.querySelectorAll(".js-product-image-gallery__main > .js-product-image-gallery__image").forEach(img => {
@@ -82,7 +83,9 @@ class Bukalapak
                     "deskripsi": document.querySelector(".js-collapsible-product-detail > p").innerText,
                     "keterangan": "Unvailable",
                     "foto_produk": gambar,
-                    "kurir": kurir
+                    "kurir": kurir,
+                    "tanggal_crawl": current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds(),
+                    "rating": document.querySelector(".c-rating__fg").getAttribute("style").substr(7)
                 }
             '));
             var_dump($prds);
@@ -176,7 +179,9 @@ class Bukalapak
             "keterangan" => $data['keterangan'],
             "gambar" => $data['foto_produk']['large_urls'][0],
             "kurir" => $data['kurir'],
-            "rating" => (isset($data['rating']['average_rate'])) ? $data['rating']['average_rate'] : 0,
+            "tanggal_crawl" => $data['tanggal_crawl'],
+            "rating" => $data['rating'],
+            // "rating" => (isset($data['rating']['average_rate'])) ? $data['rating']['average_rate'] : 0,
             "review_count" => "Unavaible",
             "discount" => (empty($data['deal'])) ? 0 : $data['deal']['percentage'],
             "initial_price" => (empty($data['deal'])) ? $data['price'] : $data['deal']['original_price'],
