@@ -150,16 +150,17 @@ class Bukalapak
 
         $links = $this->Productlinks;
 
-        echo "Get all Product data, total product : " . count($links) . "\n";
         // echo "Get the first 10 Product data, total product : " . count($links) . "\n";
-
-        for ($i = 1; $i <= 10; $i++) {
+        // get 10 products
+        for ($i = 1; $i <= 11; $i++) {
             $product = $this->getProduct($links[$i]);
 
             $products[] = $product;
 
         }
 
+        echo "Get all Product data, total product : " . count($links) . "\n";
+        // get all products
         // $count = 1;
         // foreach ($links as $link) {
         //     echo "get product " . $count . "/" . count($links) . "\n";
@@ -194,8 +195,16 @@ class Bukalapak
                 document.querySelectorAll(".qa-seller-shipping-courier-value > span").forEach(kur => {
                     kurir.push(kur.getAttribute("title"))
                 });
-
-
+                let diskons = document.querySelectorAll(".c-product-detail-price > span");
+                let diskon = "";
+                let harga = "";
+                if(diskons.length == 1){
+                    diskon = "NULL"
+                    harga = document.querySelector(".c-product-detail-price > span").innerText.split("Rp")[1]
+                }else{
+                    diskon = document.querySelectorAll(".c-product-detail-price > span")[1].innerText.split("Rp")[1]
+                    harga = document.querySelectorAll(".c-product-detail-price > span")[0].innerText.split("Rp")[1]
+                }
                 return {
                     "kategori": document.querySelectorAll(".c-breadcrumb > .c-breadcrumb__item > .c-breadcrumb__link")[1].innerText,
                     "nama": document.querySelector(".c-product-detail__name").innerText,
@@ -204,10 +213,16 @@ class Bukalapak
                     "foto_produk": gambar,
                     "kurir": kurir,
                     "tanggal_crawl": current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds(),
-                    "rating": document.querySelector(".c-rating__fg").getAttribute("style").substr(7)
+                    "rating": document.querySelector(".c-rating__fg").getAttribute("style").substr(7),
+                    "jumlah_review": parseInt(document.querySelector(".qa-pd-review-tab").innerText),
+                    "diskon": diskon,
+                    "harga": harga,
+                    "jumlah_produk": document.querySelector(".qa-pd-stock > .u-fg--green-super-dark")
                 }
             '));
-
+            
+        var_dump($result);
+   
         $browser->close();
 
         return $result;
