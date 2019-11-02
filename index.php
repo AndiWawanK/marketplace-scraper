@@ -17,7 +17,7 @@ $start_time = microtime(true);
 $bukalapak = new Bukalapak("https://www.bukalapak.com/u/rikky");
 
 $store_info = $bukalapak->getStoreInformation();
-// $store_products = $bukalapak->getProducts();
+$store_products = $bukalapak->getProducts();
 
 // $db = new DB("202.47.80.110", "root", "mplacesisfor84!", "esmart");
 
@@ -31,5 +31,12 @@ $end_time = microtime(true);
 $execution_time = ($end_time - $start_time);
 
 echo " Execution time of script = " . $execution_time . " sec";
+
+$store_file = fopen("store.txt", "w");
+fwrite($store_file,print_r($store_info,true));
+
 $product_file = fopen("products.txt", "w");
-fwrite($product_file,print_r($store_info,true));
+fwrite($product_file, print_r($store_products, true));
+
+$debug_file = fopen("debug.txt","w");
+fwrite($debug_file," Execution time of script = " . $execution_time . " sec");

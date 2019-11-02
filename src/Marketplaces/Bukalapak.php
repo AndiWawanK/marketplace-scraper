@@ -21,16 +21,18 @@ class Bukalapak
         $browser = $this->puppeteer->launch(["headless" => true]);
         $page = $browser->newPage();
 
-        echo "Open page";
+        echo "Open page \n";
 
         $page->goto($this->url, array(
             "waitUntil" => "networkidle0",
             "timeout" => 0,
         ));
 
-        echo "Open page finished";
+        echo "Open page finished \n";
 
-        echo "Get store Information";
+        echo "Get store Information \n";
+
+        $page->waitForSelector(".ut-store-name", ['visible' => true]);
 
         $store = $page->evaluate(JsFunction::createWithBody('
             return {
@@ -45,13 +47,15 @@ class Bukalapak
                 "url": window.location.href
             }
         '));
-        
 
-        echo "Get Products link";
+        echo "Get Products link \n";
 
         $links = [];
 
-        $products = $page->evaluate(JsFunction::createWithBody('
+        $page->waitForSelector(".c-pagination__btn .c-icon--arrow-forward", ['visible' => true]);
+
+
+        $productLinks = $page->evaluate(JsFunction::createWithBody('
             let links = [];
             document.querySelectorAll(".c-product-card__name.js-tracker-product-link").forEach(el => {
                 links.push(el.getAttribute("href"));
@@ -60,95 +64,39 @@ class Bukalapak
             return links;
         '));
 
-        $links = array_merge($links, $products);
+        $links = array_merge($links, $productLinks);
 
-        $page->click(".c-pagination__btn .c-icon--arrow-forward");
-        foreach($links as $go){
-            $page->goto($go);
-            $prds = $page->evaluate(JsFunction::createWithBody('
-                let current_datetime = new Date()
-                let gambar = []
-                let kurir = []
-                document.querySelectorAll(".js-product-image-gallery__main > .js-product-image-gallery__image").forEach(img => {
-                    gambar.push(img.getAttribute("href"))
-                });
-                document.querySelectorAll(".qa-seller-shipping-courier-value > span").forEach(kur => {
-                    kurir.push(kur.getAttribute("title"))
-                });
-                
-                
-                return {
-                    "kategori": document.querySelectorAll(".c-breadcrumb > .c-breadcrumb__item > .c-breadcrumb__link")[1].innerText,
-                    "nama": document.querySelector(".c-product-detail__name").innerText,
-                    "deskripsi": document.querySelector(".js-collapsible-product-detail > p").innerText,
-                    "keterangan": "Unvailable",
-                    "foto_produk": gambar,
-                    "kurir": kurir,
-                    "tanggal_crawl": current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds(),
-                    "rating": document.querySelector(".c-rating__fg").getAttribute("style").substr(7)
-                }
+        $isDisabled = $page->evaluate(JsFunction::createWithBody('
+            return !!document.querySelector(".c-pagination__btn .c-icon--arrow-forward").parentElement.getAttribute("disabled");
+        '));
+
+        while (!$isDisabled) {
+
+            $page->click(".c-pagination__btn .c-icon--arrow-forward");
+
+            $page->waitForSelector(".c-product-card__name.js-tracker-product-link", ['visible' => true]);
+
+            $products = $page->evaluate(JsFunction::createWithBody('
+            let links = [];
+            document.querySelectorAll(".c-product-card__name.js-tracker-product-link").forEach(el => {
+                links.push(el.getAttribute("href"));
+            })
+
+            return links;
             '));
-            var_dump($prds);
+
+            $links = array_merge($links, $products);
+
+            $isDisabled = $page->evaluate(JsFunction::createWithBody('
+                return !!document.querySelector(".c-pagination__btn .c-icon--arrow-forward").parentElement.getAttribute("disabled");
+            '));
 
         }
-        
-        // var_dump($links);
-        // die;
-        // foreach($links as $link){
-        //     $getproduct = $links->evaluate(JsFunction::createWithBody('
-        //         document.querySelector(".c-product-card__name .js-tracker-product-link").click();
-        //     '));
 
-        //     var_dump($getproduct);
-        //     die;
-        // }
-        
-        
-        
-        // $prd = $page->evaluate(JsFunction::createWithBody('
-        //     return {
-        //         "name": document.querySelector(".c-product-detail__name .qa-pd-name")
-        //     }
-        // '));
-
-        // var_dump($prd);
-        // die;
-
-        // $isDisabled = $page->evaluate(JsFunction::createWithBody('
-        //     return !!document . querySelector(".c-pagination__btn .c-icon--arrow-forward") . parentElement . getAttribute("disabled");
-        // '));
-
-        // while (!$isDisabled) {
-        //     // $page->evaluate(JsFunction::createWithBody('
-        //     //     document.querySelector(".c-pagination__btn .c-icon--arrow-forward").click();
-        //     // '));
-
-        //     $page->click(".c-pagination__btn .c-icon--arrow-forward");
-
-        //     // $products = $page->evaluate(JsFunction::createWithBody('
-        //     // let links = [];
-        //     // document.querySelectorAll(".c-product-card__name.js-tracker-product-link").forEach(el => {
-        //     //     links.push(el.getAttribute("href"));
-        //     // })
-
-        //     // return links;
-        //     // '));
-
-        //     // $links = array_merge($links, $products);
-
-        //     $page->waitForNavigation([ "waitUntil" => 'networkidle0' ]);
-
-        //     $isDisabled = $page->evaluate(JsFunction::createWithBody('
-        //         return !!document . querySelector(".c-pagination__btn .c-icon--arrow-forward") . parentElement . getAttribute("disabled");
-        //     '));
-
-
-        // }
+        $this->Productlinks = $links;
 
         $browser->close();
-        // var_dump($links);
-        
-        // var_dump($store);
+
         return $this->formatOutput($store);
     }
 
@@ -198,26 +146,71 @@ class Bukalapak
 
     public function getProducts()
     {
-        $limit = 20;
-        $total_page = floor($this->product_count / 20);
-        $offset = 0;
-
         $products = [];
 
-        for ($i = 1; $i <= $total_page; $i++) {
-            $link = "https://api.bukalapak.com/stores/" . $this->merchant_id . "/products/?offset=" . $offset . "&limit=" . $limit . "&access_token=" . $this->auth_token;
-            $res = $this->api->get($link);
-            $body = (string) $res->getBody();
+        $links = $this->Productlinks;
 
-            $data = json_decode($body, true);
+        echo "Get all Product data, total product : " . count($links) . "\n";
+        // echo "Get the first 10 Product data, total product : " . count($links) . "\n";
 
-            foreach ($data['data'] as $product) {
-                $products[] = $this->formatProduct($product);
-            }
+        for ($i = 1; $i <= 10; $i++) {
+            $product = $this->getProduct($links[$i]);
 
-            $offset = (($i + 1) - 1) * $limit;
+            $products[] = $product;
+
         }
 
+        // $count = 1;
+        // foreach ($links as $link) {
+        //     echo "get product " . $count . "/" . count($links) . "\n";
+        //     $product = $this->getProduct($link);
+
+        //     $products[] = $product;
+        //     $count++;
+        // }
+
         return $products;
+    }
+
+    public function getProduct($link)
+    {
+        $browser = $this->puppeteer->launch(["headless" => true, "args" => ['--no-sandbox', '--disable-setuid-sandbox']]);
+        $page = $browser->newPage();
+
+        $page->goto($link, array(
+            "waitUntil" => "networkidle0",
+            "timeout" => 0,
+        ));
+
+        $page->waitForSelector(".c-product-detail__name", ['visible' => true]);
+
+        $result = $page->evaluate(JsFunction::createWithBody('
+                let current_datetime = new Date()
+                let gambar = []
+                let kurir = []
+                document.querySelectorAll(".js-product-image-gallery__main > .js-product-image-gallery__image").forEach(img => {
+                    gambar.push(img.getAttribute("href"))
+                });
+                document.querySelectorAll(".qa-seller-shipping-courier-value > span").forEach(kur => {
+                    kurir.push(kur.getAttribute("title"))
+                });
+
+
+                return {
+                    "kategori": document.querySelectorAll(".c-breadcrumb > .c-breadcrumb__item > .c-breadcrumb__link")[1].innerText,
+                    "nama": document.querySelector(".c-product-detail__name").innerText,
+                    "deskripsi": document.querySelector(".js-collapsible-product-detail > p").innerText,
+                    "keterangan": "Unvailable",
+                    "foto_produk": gambar,
+                    "kurir": kurir,
+                    "tanggal_crawl": current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds(),
+                    "rating": document.querySelector(".c-rating__fg").getAttribute("style").substr(7)
+                }
+            '));
+
+        $browser->close();
+
+        return $result;
+
     }
 }
