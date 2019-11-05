@@ -152,7 +152,7 @@ class Bukalapak
 
         // echo "Get the first 10 Product data, total product : " . count($links) . "\n";
         // get 10 products
-        for ($i = 1; $i <= 11; $i++) {
+        for ($i = 1; $i <= 2; $i++) {
             $product = $this->getProduct($links[$i]);
 
             $products[] = $product;
@@ -189,12 +189,16 @@ class Bukalapak
                 let current_datetime = new Date()
                 let gambar = []
                 let kurir = []
+                let keterangan = []
                 document.querySelectorAll(".js-product-image-gallery__main > .js-product-image-gallery__image").forEach(img => {
                     gambar.push(img.getAttribute("href"))
                 });
                 document.querySelectorAll(".qa-seller-shipping-courier-value > span").forEach(kur => {
                     kurir.push(kur.getAttribute("title"))
                 });
+                document.querySelectorAll(".c-seller-tnc__content > p").forEach(ket => {
+                    keterangan.push(ket.innerText)
+                })
                 let diskons = document.querySelectorAll(".c-product-detail-price > span");
                 let diskon = "";
                 let harga = "";
@@ -209,7 +213,7 @@ class Bukalapak
                     "kategori": document.querySelectorAll(".c-breadcrumb > .c-breadcrumb__item > .c-breadcrumb__link")[1].innerText,
                     "nama": document.querySelector(".c-product-detail__name").innerText,
                     "deskripsi": document.querySelector(".js-collapsible-product-detail > p").innerText,
-                    "keterangan": "Unvailable",
+                    "keterangan": keterangan.toString(),
                     "foto_produk": gambar,
                     "kurir": kurir,
                     "tanggal_crawl": current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds(),
@@ -217,11 +221,27 @@ class Bukalapak
                     "jumlah_review": parseInt(document.querySelector(".qa-pd-review-tab").innerText),
                     "diskon": diskon,
                     "harga": harga,
-                    "jumlah_produk": document.querySelector(".qa-pd-stock > .u-fg--green-super-dark")
+                    "jumlah_barang": document.querySelector(".qa-pd-stock > strong > span").innerText.split(" ")[1],
+                    "kondisi_barang": document.querySelector(".qa-pd-condition-value > span").innerText,
+                    "jumlah_view": document.querySelector(".js-product-seen-value").innerText,
+                    "waktu_proses": document.querySelectorAll(".qa-seller-delivery-duration-value > .u-fg--green-super-dark")[0].innerText,
+                    "jumlah_favorit": document.querySelector(".qa-pd-favorited-value").innerText
+                    
                 }
             '));
-            
-        var_dump($result);
+        
+      
+        
+        // echo "Get Feedback Links";
+
+        // $links = [];
+
+        // $page->click(".js-user-feedback-list");
+        // var_dump($page);
+        // $feedbackLinks = $page->evaluate(JsFunction::createWithBody('
+        //     let links = []
+        //     document.querySelector("")
+        // '));
    
         $browser->close();
 
