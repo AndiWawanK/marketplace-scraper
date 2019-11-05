@@ -207,8 +207,8 @@ class DB{
                     $data[jumlah_favorit]
                 )";
         
-            $tes = $this->db->query($sql);
-            var_dump($sql);
+            $this->db->query($sql);
+            // var_dump($sql);
         }else{
             $id_data_produk = $resultDataIdProduct[0]['id_data_produk'] + 1;
 
