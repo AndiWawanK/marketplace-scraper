@@ -18,7 +18,7 @@ class Bukalapak
 
     public function getStoreInformation()
     {
-        $browser = $this->puppeteer->launch(["headless" => true]);
+        $browser = $this->puppeteer->launch(["headless" => true, "args" => ['--no-sandbox', '--disable-setuid-sandbox']]);
         $page = $browser->newPage();
 
         echo "Open page \n";
@@ -152,23 +152,23 @@ class Bukalapak
 
         // echo "Get the first 10 Product data, total product : " . count($links) . "\n";
         // get 10 products
-        for ($i = 1; $i <= 2; $i++) {
-            $product = $this->getProduct($links[$i]);
-
-            $products[] = $product;
-
-        }
-
-        echo "Get all Product data, total product : " . count($links) . "\n";
-        // get all products
-        // $count = 1;
-        // foreach ($links as $link) {
-        //     echo "get product " . $count . "/" . count($links) . "\n";
-        //     $product = $this->getProduct($link);
+        // for ($i = 1; $i <= 2; $i++) {
+        //     $product = $this->getProduct($links[$i]);
 
         //     $products[] = $product;
-        //     $count++;
+
         // }
+
+        echo "Get all Product data, total product : " . count($links) . "\n";
+        //get all products
+        $count = 1;
+        foreach ($links as $link) {
+            echo "get product " . $count . "/" . count($links) . "\n";
+            $product = $this->getProduct($link);
+
+            $products[] = $product;
+            $count++;
+        }
 
         return $products;
     }

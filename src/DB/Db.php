@@ -5,6 +5,7 @@ class DB{
 
     public function __construct($host,$db, $user, $pass){
 
+        // $this->db = new PDO("mysql:host=".$host.";dbname=".$db, $user, $pass);
         try {
             $this->db = new PDO("mysql:host=".$host.";dbname=".$db, $user, $pass);
         } catch (PDOException $e) {
@@ -12,7 +13,14 @@ class DB{
         }
     
     }
-
+    public function getStore($storeName){
+        $store = "SELECT toko.id_toko, toko.id_perusahaan, toko.url, marketplace.nama
+        FROM toko 
+        JOIN marketplace ON toko.id_marketplace = marketplace.id_marketplace
+        WHERE marketplace.nama = '$storeName'";
+        $stores = $this->db->query($store);
+        return $stores;   
+    }
     public function insertStore($data)
     {
         // $create_id_perusahaan = substr(str_replace(".", "", microtime(true)), 10);

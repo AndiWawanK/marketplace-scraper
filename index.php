@@ -13,22 +13,38 @@ use Marketplaces\Blanja;
 
 $start_time = microtime(true);
 
-$bukalapak = new Bukalapak("https://www.bukalapak.com/u/rikky");
+$marketplace = "bukalapak";
 
-$store_info = $bukalapak->getStoreInformation();
-$store_products = $bukalapak->getProducts();
+$db = new DB('localhost:8889','esmart2','root','root');
+$store = $db->getStore($marketplace);
 
-$db = new DB('localhost:8889','esmart','root','root');
+$storeURL = [];
+while($stores = $store->fetch(PDO::FETCH_ASSOC)){
+    $storeURL[] = $stores['url'];
+}
+foreach($storeURL as $url){
+    // $bukalapak = new Bukalapak($url);
+    var_dump($url);
+}
+// $bukalapak = new Bukalapak("https://www.bukalapak.com/u/rikky");
 
-$id_toko = $db->insertStore($store_info);
+// $store_info = $bukalapak->getStoreInformation();
+// $store_products = $bukalapak->getProducts();
 
-$insert_product = $db->insertProducts($store_products, $id_toko);
-// if($id_toko){
-//     echo "Insert Store Information Success";
+// 
 
-// }else{
-//     echo "Failed to Insert Store Information";
-// }
+// $id_toko = $db->insertStore($store_info);
+// $insert_product = $db->insertProducts($store_products, $id_toko);
+
+if($insert_product){
+    echo "Insert Data Success! \n";
+}else{
+    echo "Failed to Insert Data! \n";
+}
+
+
+
+
 
 // // End clock time in seconds
 $end_time = microtime(true);
