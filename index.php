@@ -23,8 +23,10 @@ while($stores = $store->fetch(PDO::FETCH_ASSOC)){
     $storeURL[] = $stores['url'];
 }
 foreach($storeURL as $url){
-    // $bukalapak = new Bukalapak($url);
-    var_dump($url);
+    $bukalapak = new Bukalapak($url);
+    $store_info = $bukalapak->getStoreInformation();
+    // sleep(60);
+    // var_dump($store_info);
 }
 // $bukalapak = new Bukalapak("https://www.bukalapak.com/u/rikky");
 
