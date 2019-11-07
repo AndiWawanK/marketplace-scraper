@@ -17,7 +17,7 @@ class DB{
         $store = "SELECT toko.id_toko, toko.id_perusahaan, toko.url, marketplace.nama
         FROM toko 
         JOIN marketplace ON toko.id_marketplace = marketplace.id_marketplace
-        WHERE marketplace.nama = '$storeName'";
+        WHERE marketplace.nama = '$storeName' LIMIT 2";
         $stores = $this->db->query($store);
         return $stores;   
     }
