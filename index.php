@@ -25,6 +25,22 @@ while($stores = $store->fetch(PDO::FETCH_ASSOC)){
 foreach($storeURL as $url){
     $bukalapak = new Bukalapak($url);
     $store_info = $bukalapak->getStoreInformation();
+    if($store_info){
+        $store_products = $bukalapak->getProducts();
+
+        echo "Scrap Store Information Successful\n";
+        var_dump($store_info);
+
+        if($store_products){
+            echo "Scrap Product Store Successful\n";
+            var_dump($store_products);
+        }else{
+            echo "Scrap Product Store Failed\n";
+        }
+        
+    }else{
+        echo "Scrap Store Information Failed\n";
+    }
     // sleep(60);
     // var_dump($store_info);
 }

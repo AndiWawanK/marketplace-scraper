@@ -22,7 +22,6 @@ class Bukalapak
         $page = $browser->newPage();
 
         echo "Open page \n";
-        var_dump($this->url);
 
         $page->goto($this->url, array(
             "waitUntil" => "networkidle0",
@@ -48,7 +47,7 @@ class Bukalapak
                 "url": window.location.href
             }
         '));
-
+        // var_dump($store);
         echo "Get Products link \n";
 
         $links = [];
@@ -72,7 +71,7 @@ class Bukalapak
         '));
 
         while (!$isDisabled) {
-
+            $page->waitForSelector(".c-pagination__btn .c-icon--arrow-forward", ['visible' => true]);
             $page->click(".c-pagination__btn .c-icon--arrow-forward");
 
             $page->waitForSelector(".c-product-card__name.js-tracker-product-link", ['visible' => true]);
@@ -93,9 +92,9 @@ class Bukalapak
             '));
 
         }
-
+       
         $this->Productlinks = $links;
-
+        
         $browser->close();
 
         return $this->formatOutput($store);
@@ -151,27 +150,27 @@ class Bukalapak
 
         $links = $this->Productlinks;
 
-        // echo "Get the first 10 Product data, total product : " . count($links) . "\n";
+        echo "Get the first 10 Product data, total product : " . count($links) . "\n";
         // get 10 products
-        // for ($i = 1; $i <= 2; $i++) {
-        //     $product = $this->getProduct($links[$i]);
+        for ($i = 1; $i <= 2; $i++) {
+            $product = $this->getProduct($links[$i]);
 
-        //     $products[] = $product;
-
-        // }
-
-        echo "Get all Product data, total product : " . count($links) . "\n";
-        //get all products
-        $count = 1;
-        foreach ($links as $link) {
-            echo "get product " . $count . "/" . count($links) . "\n";
-            $product = $this->getProduct($link);
-
-            $products[] = $product;
-            $count++;
+            // $products[] = $product;
+            return $product;
         }
 
-        return $products;
+        // echo "Get all Product data, total product : " . count($links) . "\n";
+        // //get all products
+        // $count = 1;
+        // foreach ($links as $link) {
+        //     echo "get product " . $count . "/" . count($links) . "\n";
+        //     $product = $this->getProduct($link);
+
+        //     $products[] = $product;
+        //     $count++;
+        // }
+
+        // return $products;
     }
 
     public function getProduct($link)
