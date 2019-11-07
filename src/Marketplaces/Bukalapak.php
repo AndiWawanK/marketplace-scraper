@@ -22,6 +22,7 @@ class Bukalapak
         $page = $browser->newPage();
 
         echo "Open page \n";
+        var_dump($this->url);
 
         $page->goto($this->url, array(
             "waitUntil" => "networkidle0",
