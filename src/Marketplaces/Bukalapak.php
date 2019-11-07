@@ -143,7 +143,12 @@ class Bukalapak
 
         return $result;
     }
+    public function saveProducts($product){
+        // TO DO
+        // Insert data product after scraping 1 product; ++
+        
 
+    }
     public function getProducts()
     {
         $products = [];
@@ -154,9 +159,10 @@ class Bukalapak
         // get 10 products
         for ($i = 1; $i <= 2; $i++) {
             $product = $this->getProduct($links[$i]);
-
+            echo "Getting Product : " . $i . "\n";
+            $this->saveProducts($product);
             // $products[] = $product;
-            return $product;
+            // return $product;
         }
 
         // echo "Get all Product data, total product : " . count($links) . "\n";
@@ -170,7 +176,7 @@ class Bukalapak
         //     $count++;
         // }
 
-        // return $products;
+        return true;
     }
 
     public function getProduct($link)
