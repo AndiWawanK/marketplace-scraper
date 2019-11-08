@@ -18,32 +18,34 @@ $marketplace = "bukalapak";
 $db = new DB('localhost:8889','esmart2','root','root');
 $store = $db->getStore($marketplace);
 
-$storeURL = [];
+// $storeURL = [];
 while($stores = $store->fetch(PDO::FETCH_ASSOC)){
-    $storeURL[] = $stores['url'];
-}
-foreach($storeURL as $url){
-    $bukalapak = new Bukalapak($url);
+    // $storeURL[] = $stores['url'];
+
+    $bukalapak = new Bukalapak($stores['url']);
     $store_info = $bukalapak->getStoreInformation();
     if($store_info){
-        $store_products = $bukalapak->getProducts();
-
         echo "Scrap Store Information Successful\n";
-        var_dump($store_info);
-
-        if($store_products){
-            echo "Scrap Product Store Successful\n";
-            var_dump($store_products);
-        }else{
-            echo "Scrap Product Store Failed\n";
-        }
+        // var_dump($stores['url'], $stores['id_perusahaan']);
+        $update_store = $db->updateStore($store_info, $stores['id_perusahaan']);
         
+        // $store_products = $bukalapak->getProducts();
+        // var_dump($store_products);
+        // if($store_products){
+        //     echo "Scrap Product Store Successful\n";
+        // }else{
+        //     echo "Scrap Product Store Failed\n";
+        // }
+
     }else{
         echo "Scrap Store Information Failed\n";
     }
-    // sleep(60);
-    // var_dump($store_info);
+
 }
+// foreach($storeURL as $url){
+    
+    
+// }
 // $bukalapak = new Bukalapak("https://www.bukalapak.com/u/rikky");
 
 // $store_info = $bukalapak->getStoreInformation();
