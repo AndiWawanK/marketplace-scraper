@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 11, 2019 at 08:58 PM
+-- Generation Time: Nov 11, 2019 at 11:30 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -36,6 +36,16 @@ CREATE TABLE `data_produk` (
   `jml_favorit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `data_produk`
+--
+
+INSERT INTO `data_produk` (`id_data_produk`, `id_produk`, `tgl_crawl`, `rating`, `jml_review`, `diskon`, `harga`, `jml_barang`, `kondisi`, `jml_terjual`, `jml_view`, `waktu_proses`, `jml_favorit`) VALUES
+(1, 1, '2019-11-12 06:27:14', 98, 109, 88, 92500, 100, 'baru', NULL, 7451, '± 14 jam ', 217),
+(2, 2, '2019-11-12 06:27:24', 98, 302, 0, 29000, 200, 'baru', NULL, 27516, '± 14 jam ', 733),
+(3, 3, '2019-11-12 06:27:40', 84, 22, 84, 150000, 100, 'baru', NULL, 11137, '± 1-2 hari ', 140),
+(4, 4, '2019-11-12 06:27:47', 84, 107, 75, 150000, 50, 'baru', NULL, 29839, '± 1-2 hari ', 307);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +57,27 @@ CREATE TABLE `foto_produk` (
   `id_produk` int(11) DEFAULT NULL,
   `nama_file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `foto_produk`
+--
+
+INSERT INTO `foto_produk` (`id_foto_produk`, `id_produk`, `nama_file`) VALUES
+(1, 1, 'https://s1.bukalapak.com/img/67421374521/w-1000/EARBUD_VIDO_MIC_DIY_RECABLE_jACK_L_V5___CABEL_CRYSTAL.jpg'),
+(2, 1, 'https://s3.bukalapak.com/img/3964186327/w-1000/EARBUD_VIDO_MIC_DIY_RECABLE_jACK_L_V5___CABEL_CRYSTAL.jpg'),
+(3, 1, 'https://s3.bukalapak.com/img/3216186327/w-1000/EARBUD_VIDO_MIC_DIY_RECABLE_jACK_L_V5___CABEL_CRYSTAL.jpg'),
+(4, 1, 'https://s3.bukalapak.com/img/8459186327/w-1000/EARBUD_VIDO_MIC_DIY_RECABLE_jACK_L_V5___CABEL_CRYSTAL.jpg'),
+(5, 1, 'https://s4.bukalapak.com/img/9233268578/w-1000/EARBUD_VIDO_MIC_DIY_RECABLE_jACK_L_V5___CABEL_CRYSTAL.jpg'),
+(6, 2, 'https://s4.bukalapak.com/img/9723786/w-1000/dagangan_5.jpg'),
+(7, 2, 'https://s0.bukalapak.com/img/07834540551/w-1000/ss1.png'),
+(8, 2, 'https://s0.bukalapak.com/img/52754540551/w-1000/ss2.png'),
+(9, 2, 'https://s0.bukalapak.com/img/00074540551/w-1000/ss3.png'),
+(10, 2, 'https://s0.bukalapak.com/img/03184540551/w-1000/ss4.png'),
+(11, 3, 'https://s0.bukalapak.com/img/51241615831/w-1000/data.png'),
+(12, 3, 'https://s0.bukalapak.com/img/52831615831/w-1000/data.png'),
+(13, 4, 'https://s3.bukalapak.com/img/3632433205/w-1000/baju_muslim_wanita_dress_Amanda_maxi_terbaru_grosir.jpg'),
+(14, 4, 'https://s3.bukalapak.com/img/3891433205/w-1000/baju_muslim_wanita_dress_Amanda_maxi_terbaru_grosir.jpg'),
+(15, 4, 'https://s3.bukalapak.com/img/8229433205/w-1000/baju_muslim_wanita_dress_Amanda_maxi_terbaru_grosir.jpg');
 
 -- --------------------------------------------------------
 
@@ -640,6 +671,20 @@ CREATE TABLE `kurir_produk` (
   `id_kurir` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `kurir_produk`
+--
+
+INSERT INTO `kurir_produk` (`id_kurir_produk`, `id_produk`, `id_kurir`) VALUES
+(1, 1, 7),
+(2, 1, 2),
+(3, 1, 1),
+(4, 2, 7),
+(5, 2, 2),
+(6, 2, 1),
+(7, 3, 2),
+(8, 4, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -657,6 +702,16 @@ CREATE TABLE `links` (
   `is_mapping` enum('0','1') DEFAULT '0',
   `is_upload` enum('0','1') DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `links`
+--
+
+INSERT INTO `links` (`id`, `id_marketplace`, `link`, `path`, `type`, `is_download`, `is_parse`, `is_mapping`, `is_upload`) VALUES
+(1, NULL, 'https://www.bukalapak.com/p/handphone/headset-earphone/1b3ybtc-jual-earbud-vido-mic-diy-recable-jack-l-v5-cabel-crystal?from=product_owner_product_highlights&product_owner=normal_seller', NULL, NULL, '0', '0', '0', '0'),
+(2, NULL, 'https://www.bukalapak.com/p/handphone/headset-earphone/1tqnu-jual-earphone-vido-window-earphonenya-kere-hore?from=product_owner_product_highlights&product_owner=normal_seller', NULL, NULL, '0', '0', '0', '0'),
+(3, NULL, 'https://www.bukalapak.com/p/fashion-anak/busana-muslim/baju-muslim-couple/13d84y1-jual-baju-muslim-wanita-dress-delilah-maxi-terbaru-obrap-grosir?from=product_owner_product_highlights&product_owner=normal_seller', NULL, NULL, '0', '0', '0', '0'),
+(4, NULL, 'https://www.bukalapak.com/p/fashion-wanita/baju-muslim-perlengkapan-sholat-2555/busana-muslim-wanita/kfut30-jual-baju-muslim-wanita-dress-amanda-maxi-terbaru-grosir?from=product_owner_product_highlights&product_owner=normal_seller', NULL, NULL, '0', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -1346,8 +1401,8 @@ INSERT INTO `perusahaan` (`id_perusahaan`, `id_marketplace`, `nama`, `nama_toko`
 (627, 1, 'Desfesel', 'Desfesel', 'destadarlina@gmail.com', '08889004941', '', 'Perumahan Indogreen Blok C1 No.2 RT/RW 04 Kabupaten Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (628, 3, 'Mizaniraf Food', 'wa Akung', 'kakihsan73@gmail.com', '081905087669', '', 'Kp. Lb. Wangi T.03 RW.01 Desa Pamegarsari Parung Bogor, Kabupaten Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (629, 1, 'Mizaniraf Food', 'wa Akung', 'kakihsan73@gmail.com', '081905087669', '', 'Kp. Lb. Wangi T.03 RW.01 Desa Pamegarsari Parung Bogor, Kabupaten Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
-(630, 1, 'asep_supriatna65', 'A16COM', '', '', '\n      \"UNTUK JADWAL PIK UP SILAKAN DI BACA CATATAN PELAPAK YA DI SANA SUDAH KAMI CANTUMKAN JADWAL N KETENTUAN OLDER,BUDAYAKAN MEMBACA\"\n    ', 'Bandung', 'https://s2.bukalapak.com/avt/26599131/small/logo.jpg', '2013-04-23 00:00:00', 0, '0000-00-00 00:00:00', '', NULL, NULL, 3273, 32, ''),
-(631, 1, 'browker', 'browker', '', '', '', 'Bandung', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
+(630, 1, 'asep_supriatna65', 'A16COM', '', '', '\n      \"UNTUK JADWAL PIK UP SILAKAN DI BACA CATATAN PELAPAK YA DI SANA SUDAH KAMI CANTUMKAN JADWAL N KETENTUAN OLDER,BUDAYAKAN MEMBACA\"\n    ', 'Bandung', 'https://s2.bukalapak.com/avt/26599131/small/logo.jpg', '2013-04-23 00:00:00', 0, '0000-00-00 00:00:00', '', NULL, NULL, 3273, 32, 'Super Seller'),
+(631, 1, 'browker', 'Amelia Fashion Hijab Grosir', '', '', '', 'Bandung', 'https://s1.bukalapak.com/avt/68497352/small/PicsArt_07-13-12.35.04.png', '2016-01-06 00:00:00', 0, '0000-00-00 00:00:00', '', NULL, NULL, 3273, 32, 'Super Seller'),
 (632, 1, 'browniespop', 'browniespop', '', '', '', 'Bandung', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (633, 1, 'chandra_hernawan7988', 'chandra_hernawan7988', '', '', '', 'Bandung', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (634, 1, 'dahancorporation', 'dahancorporation', '', '', '', 'Bandung', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
@@ -1454,9 +1509,9 @@ INSERT INTO `perusahaan` (`id_perusahaan`, `id_marketplace`, `nama`, `nama_toko`
 (735, 1, 'sitinurzubaidah', 'sitinurzubaidah', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (736, 1, 'soesilowati509', 'soesilowati509', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (737, 1, 'sriujiati', 'sriujiati', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
-(738, 1, 'sss_food_nanasqu', 'sss_food_nanasqu', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
-(739, 1, 'sukanicky_gw', 'sukanicky_gw', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, '');
+(738, 1, 'sss_food_nanasqu', 'sss_food_nanasqu', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, '');
 INSERT INTO `perusahaan` (`id_perusahaan`, `id_marketplace`, `nama`, `nama_toko`, `email`, `no_telp`, `keterangan`, `alamat`, `foto`, `tgl_daftar`, `jml_view`, `terakhir_login`, `status`, `tgl_input`, `inputer`, `kd_kota`, `kd_provinsi`, `lvl_reputasi`) VALUES
+(739, 1, 'sukanicky_gw', 'sukanicky_gw', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (740, 1, 'temperindu_putranyonyapainah', 'temperindu_putranyonyapainah', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (741, 1, 'vitautama', 'vitautama', '', '', '', 'Banyumas', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (742, 1, 'abbaliving', 'abbaliving', '', '', '', 'Solo', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
@@ -1823,9 +1878,9 @@ INSERT INTO `perusahaan` (`id_perusahaan`, `id_marketplace`, `nama`, `nama_toko`
 (1103, 1, 'kosebo', 'kosebo', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (1104, 1, 'like76store', 'like76store', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (1105, 1, 'misterrm', 'misterrm', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
-(1106, 1, 'mutiarakeset', 'mutiarakeset', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
-(1107, 1, 'pedi_elga', 'pedi_elga', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, '');
+(1106, 1, 'mutiarakeset', 'mutiarakeset', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, '');
 INSERT INTO `perusahaan` (`id_perusahaan`, `id_marketplace`, `nama`, `nama_toko`, `email`, `no_telp`, `keterangan`, `alamat`, `foto`, `tgl_daftar`, `jml_view`, `terakhir_login`, `status`, `tgl_input`, `inputer`, `kd_kota`, `kd_provinsi`, `lvl_reputasi`) VALUES
+(1107, 1, 'pedi_elga', 'pedi_elga', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (1108, 1, 'sepatuarkan', 'sepatuarkan', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (1109, 1, 'sepatusandalprocio', 'sepatusandalprocio', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
 (1110, 1, 'septia81', 'septia81', '', '', '', 'Bogor', NULL, NULL, 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, ''),
@@ -1887,6 +1942,16 @@ CREATE TABLE `produk` (
   `deskripsi` text,
   `keterangan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `id_toko`, `id_kategori`, `kategori_marketplace`, `nama`, `deskripsi`, `keterangan`) VALUES
+(1, 1, NULL, NULL, 'EARBUD VIDO MIC DIY RECABLE JACK L V5 - CABEL CRYSTAL', '#B532\n\"READY STOK\"\npengiriman dengan expedisi (bukan gosen) paking Bubble Wrap, plastik gelembung tampa tambahan biyaya apapun GRATIS\n\nUntuk produk vido recable v5 ini cuman bisa bilang,cakep fisiknya cakep ,masuk semua genre musik\nSTOK SANGAT TERBATAS DIKARNAKAN JUMLAH KABEL YANG SEDIKIT\n\ntersedia warna : (untuk detailnya silakan cek foto)\n*PUTIH : VIDO PUTIH KABEL KUNING BRON\n*NAVY : VIDO BIRU/NAVY KABEL BIRU\n*MERAH - PUTIH :VIDO PUTIH KABEL MERAH\n*BIRU - MERAH :VIDO BIRU KABEL MERAH\n*PUTIH - BIRU :VIDO PUTIH KABEL BIRU (new varian)\n\n*UNTUK WARNA SILAKAN CANTUMKAN DIKOLOM KETERANGAN BUKAN DI PESAN/DISKRUSI PRODUK TAMPA KETERANGAN KAMI ANGGAP SIAP DIKIRIM RANDOM\n\nproduk yang anda dapatkan dalam penjualan ini\n*1.unit earphone\n*3.pasang busa normal (warna menyesuaikan stok)\n*1.jack protektor untuk melindungi mata jack\n*1.strap kulit sapi (warna menyesuaikan stok)\n\n*untuk area bandung pengiriman bisa mengunakan gojek/grab untuk area yg mendukung layanan (max older jam2)\nNB:silakan membaca CATATAN pelapak untuk mengetahui jadwal pik-up & ketentuan toko,thx', 'KIRIMAN (YANG MO PAKE POS BACA DULU YA GAN )\nKiriman yang mengunakan POS max olderan masuk jam 14:00 (jam 2 siang) dari senin-jum at untuk olderan saptu/minggu akan dikirim hari senin,olderan di atas jam 2 siang dikirim hari berikutnya,kiriman POS tidak menutup kemungkinan dikirim +1hari dari olderan masuk.,dengan memilih kulir POS kami anggap sudah MENGETAHUI DAN MENSETUJUI,ketentuan older,sblm older silakan di baca dulu,older kami anggap sudah membaca & mensetujui,SEBELUM OLDER TOLONG DI PM DULU UNTUK MENANYAKAN STOK BARANG,JIKA BARANG DINYATAKAN READY STOK SILAKAN DI OLDE\",OLDER= NO CANSEL (jadi dipikirkan terlebih dahulu sblm older),JADWAL PENGIRIMAN,SENIN-JUMAT,JNE,J&T jam 16:00\njam 14:00\nPOS :jam 14:00,GOSEN/GRAB jam 15:00 (pik-up jam 15:30),untuk olderan yang terverifikasi di atas jam 15:30 kami kirim hari berikutnya 15:30 (dikarnakan gudang kami ada 2,jika barang ada di gudang 1,kami usahakan secepatnya,jika barang ada gudang 2 kami kirim jam 15:30 dikarnakan jarak yang jauh pegawe kami baru brangkat ke gudang 2 jam 15:00 untuk ambil badang di gudang2,agar tidak bulak-balik.),SAPTU,JNE,J&T jam 14:00,GOSEN/GRAB jam 14:00,(pik-up jam 15:30) untuk olderan yang terverifikasi di atas jam 15:30 kami kirim hari berikutnya 15:30 (dikarnakan gudang kami ada 2,jika barang ada di gudang 1,kami usahakan secepatnya,jika barang ada gudang 2 kami kirim jam 15:30 dikarnakan jarak yang jauh pegawe kami baru brangkat ke gudang 2 jam 15:00 untuk ambil badang di gudang2,agar tidak bulak-balik.),*untuk yang older dengan GOSEND/GRAB kami anggap sudah mengetahui tatacaranya yaitu tidak usah membayar ongkos kirim pada draiver,cz ongkos kirim sudah otomatis di bayarkan BUKALAPAK pada draiver dengan metode GOPAY/GRABPAY,jika draiver miminta ongkir anda bisa menjelaskanya pada draiver (kami tidak melayani keluhan draiver minta ongkoskirim disini sudah kami jelaskan),*Kiriman yang mengunakan max olderan masuk jam 14:00 (jam 2 siang) dari senin-jum at untuk olderan saptu/minggu akan dikirim hari senin,olderan di atas jam 2 siang dikirim hari berikutnya,kiriman tidak menutup kemungkinan dikirim +1hari dari olderan masuk.,dengan memilih kulir kami anggap sudah MENGETAHUI DAN MENSETUJUI,*DAFTAR BLACKLIS KONSUMEN,bagi konsumen yang memberikan penilayan 1 bintang/feedback negatif/logo cemberut ,otomatis masuk daftar BLACKLIS toko kami,garansi produk otomatis hangus,serta tidak akan kami layani dalam nex older,otomatis olderan anda akan kami CANSEL,MINGGU/TANGGAL MERAH LIBUR TIDAK ADA PENGIRIMAN,pengiriman kami usahkan dihari yang sama anda older jika waktu transaksi terverifikasi seperti yang telah dijelaskan di atas,paling telat keesokan harinya (namun hal ini sangat jarang terjadi jika bukan karna hal yang dalurat dan ada hal yang mendesak),pertanyaan stok/pm stok akan kami balas mulai dr jam 11siang-02 dini hari (jika ada pertanyaan blm dijawab mohon kesabaranya mungkin sedang tidur dulu/sibuk,harap dimaklumi admin juga masih manusia),kecepatan paket sampai kecepatan paket sampai tergantung expedisi & layanan yang anda pilih,jadi tolong dipirkan dulu dan dipertimbangkan dlm memilih expedisi yang akan dipilih,karna kecepatan paket sampai diluar wilayah kerja kami. untuk mempercepat pengiriman silakan masukan alamat sejelas mungkin dan patokan agar tidak terjadi alamat tidak lengkap/penerima tidak di kenal,No resi no resi akan kami up-date pada mlm hari mulai jam 21:00-24:00 (jadi blm ada no resi bukan brti blm dikirim,cz kami mengunakan pik-up expedisi agen langganan kami jadi pik up pengambilan barang sesuai jadwal)pertanyaan kapan barang dikirim/minta no resi kemungkinan besar tidak akan admin jawab karna sudah dijelaskan disini harap dimaklum cz admin juga blm tau berapa no resinya,yang pasti kami tidak akan memperlambat olderan dikirim cz semakin cepat barang diterima konsumen semakin cepat uang cair.,pengantian expedisi pengantian expedisi yang anda pilih deengan expedisi lain mungkin jika terjadi beberapa hal,misalkan ongkir tidak sesuai misalkan anda pilih expedisi A ongkir 10rb ternyata setelah admin cek ongkir ongkir expedisi A 15rb kemungkinan admin akan ganti dengan expedisi yang lain yang ongkirnya 10rb/menganti jenis layanan deengan yang sesuai ongkirnya (biasanya hal ini terjdi karna konsumen yang nakal,alamat di pedesaan di masukan kota dengan maksud hemat ongkir,kami sarankan tidak melakukan hal ini karna kmungkinan besar paket akan lama sampai/paket tidak sampai dan konsumen disuruh ambil ke pusat oleh pihak expedisi.,pergantian expedisi juga bisa terjadi jika pihak expedisi yang dipilih tidak bisa pik-up pada hari itu,misal pilih expedisi A teernyata hari itu expedisi A tidak bisa pik-up maka akan kami pik-up ke expedisi B dengan pertimbangan kecepatan sampai yang sama/setara dengan expedisi A,,COD : TIDAK MENERIMA COD,CUMAN KIRIM-KIRIM MENGUNAKAN EXPEDISI/GOSEN (untuk meng Efisiensiksn waktu),*UNTUK BARANG YANG DIRETUR/DIKEMBALIKAN ONGKOS KIRIM BALIK 100% DI TANGGUNG OLEH PEMBELI(apapun alasanya),TERKECUALI UNTUK BARANG YANG SALAH KIRIM OLEH PENJUAL ONGKIR BALIK DI TANGGUNG OLEH PENJUAL'),
+(2, 1, NULL, NULL, 'EARPHONE VIDO/WINDOW (EARPHONENYA KERE-HORE)', '#B167\n\"READY STOK\"\nREADY WARNA\n*PUTIH (kabel putih earbud Putih)\n*BIRU (kabel hitam earbud navy)\n*HITAM (kabel hitam earbud hitam)\n*MERAH (kabel hitam earbud merah)\n*TAMPA MIC\n(warna cantumkan di kolom keterangan bukan di PM/Chat,tampa keterangan dikirim acak no complen warna)\n\nBONUS DR TOKO SEPASANG BUSA NORMAL\n\n\nYANG LAGI NYARI EARPHONE MURAH MERIAH TAPI KUALITAS YAHUD....\nWAKTUNYA NYOBAIN NIH EARPHONE VIDO YANG DULU NAMANYA WINDOW BERUBAH JADI VIDO TAPI KUALITAS TETEP SAMA GAN NGEBAS BANGET TAPI SUARA JELAS ENGGA KETUTUPAN BAS,JANGAN LIAT BENTUKNYA GAN BEKNTUKNYA SIH PASTI YAKIN BAKAL NIPU AGAN-AGAN TP KUALITAS YANG DI HASILKANYA BRO MANYOS.... UNTUK LENGKAPNYA AGAN-AGAN BISA CARI DI GOOGLE TENTANG KUALITAS NIH EARPHONE / CARI DI FORUM KERE-HORE\n\nCOCOK BANGET BUAT YG EARPHONE HP ORI ASLINYA ILANG/RUSAK\nHP BB/SAMSUNG/IPOD/IPHONE/DLL G ASIK KAN KALO HPNYA YAHUD TP DENGER MUSIK PAKE EARPHONE YANG SUARANYA ENGGA ASIK\n\n*kita jual earphone vido dari jaman masih di kas***kus,sblm forum pindah ke FB,produk di jamin original', 'KIRIMAN (YANG MO PAKE POS BACA DULU YA GAN )\nKiriman yang mengunakan POS max olderan masuk jam 14:00 (jam 2 siang) dari senin-jum at untuk olderan saptu/minggu akan dikirim hari senin,olderan di atas jam 2 siang dikirim hari berikutnya,kiriman POS tidak menutup kemungkinan dikirim +1hari dari olderan masuk.,dengan memilih kulir POS kami anggap sudah MENGETAHUI DAN MENSETUJUI,ketentuan older,sblm older silakan di baca dulu,older kami anggap sudah membaca & mensetujui,SEBELUM OLDER TOLONG DI PM DULU UNTUK MENANYAKAN STOK BARANG,JIKA BARANG DINYATAKAN READY STOK SILAKAN DI OLDE\",OLDER= NO CANSEL (jadi dipikirkan terlebih dahulu sblm older),JADWAL PENGIRIMAN,SENIN-JUMAT,JNE,J&T jam 16:00\njam 14:00\nPOS :jam 14:00,GOSEN/GRAB jam 15:00 (pik-up jam 15:30),untuk olderan yang terverifikasi di atas jam 15:30 kami kirim hari berikutnya 15:30 (dikarnakan gudang kami ada 2,jika barang ada di gudang 1,kami usahakan secepatnya,jika barang ada gudang 2 kami kirim jam 15:30 dikarnakan jarak yang jauh pegawe kami baru brangkat ke gudang 2 jam 15:00 untuk ambil badang di gudang2,agar tidak bulak-balik.),SAPTU,JNE,J&T jam 14:00,GOSEN/GRAB jam 14:00,(pik-up jam 15:30) untuk olderan yang terverifikasi di atas jam 15:30 kami kirim hari berikutnya 15:30 (dikarnakan gudang kami ada 2,jika barang ada di gudang 1,kami usahakan secepatnya,jika barang ada gudang 2 kami kirim jam 15:30 dikarnakan jarak yang jauh pegawe kami baru brangkat ke gudang 2 jam 15:00 untuk ambil badang di gudang2,agar tidak bulak-balik.),*untuk yang older dengan GOSEND/GRAB kami anggap sudah mengetahui tatacaranya yaitu tidak usah membayar ongkos kirim pada draiver,cz ongkos kirim sudah otomatis di bayarkan BUKALAPAK pada draiver dengan metode GOPAY/GRABPAY,jika draiver miminta ongkir anda bisa menjelaskanya pada draiver (kami tidak melayani keluhan draiver minta ongkoskirim disini sudah kami jelaskan),*Kiriman yang mengunakan max olderan masuk jam 14:00 (jam 2 siang) dari senin-jum at untuk olderan saptu/minggu akan dikirim hari senin,olderan di atas jam 2 siang dikirim hari berikutnya,kiriman tidak menutup kemungkinan dikirim +1hari dari olderan masuk.,dengan memilih kulir kami anggap sudah MENGETAHUI DAN MENSETUJUI,*DAFTAR BLACKLIS KONSUMEN,bagi konsumen yang memberikan penilayan 1 bintang/feedback negatif/logo cemberut ,otomatis masuk daftar BLACKLIS toko kami,garansi produk otomatis hangus,serta tidak akan kami layani dalam nex older,otomatis olderan anda akan kami CANSEL,MINGGU/TANGGAL MERAH LIBUR TIDAK ADA PENGIRIMAN,pengiriman kami usahkan dihari yang sama anda older jika waktu transaksi terverifikasi seperti yang telah dijelaskan di atas,paling telat keesokan harinya (namun hal ini sangat jarang terjadi jika bukan karna hal yang dalurat dan ada hal yang mendesak),pertanyaan stok/pm stok akan kami balas mulai dr jam 11siang-02 dini hari (jika ada pertanyaan blm dijawab mohon kesabaranya mungkin sedang tidur dulu/sibuk,harap dimaklumi admin juga masih manusia),kecepatan paket sampai kecepatan paket sampai tergantung expedisi & layanan yang anda pilih,jadi tolong dipirkan dulu dan dipertimbangkan dlm memilih expedisi yang akan dipilih,karna kecepatan paket sampai diluar wilayah kerja kami. untuk mempercepat pengiriman silakan masukan alamat sejelas mungkin dan patokan agar tidak terjadi alamat tidak lengkap/penerima tidak di kenal,No resi no resi akan kami up-date pada mlm hari mulai jam 21:00-24:00 (jadi blm ada no resi bukan brti blm dikirim,cz kami mengunakan pik-up expedisi agen langganan kami jadi pik up pengambilan barang sesuai jadwal)pertanyaan kapan barang dikirim/minta no resi kemungkinan besar tidak akan admin jawab karna sudah dijelaskan disini harap dimaklum cz admin juga blm tau berapa no resinya,yang pasti kami tidak akan memperlambat olderan dikirim cz semakin cepat barang diterima konsumen semakin cepat uang cair.,pengantian expedisi pengantian expedisi yang anda pilih deengan expedisi lain mungkin jika terjadi beberapa hal,misalkan ongkir tidak sesuai misalkan anda pilih expedisi A ongkir 10rb ternyata setelah admin cek ongkir ongkir expedisi A 15rb kemungkinan admin akan ganti dengan expedisi yang lain yang ongkirnya 10rb/menganti jenis layanan deengan yang sesuai ongkirnya (biasanya hal ini terjdi karna konsumen yang nakal,alamat di pedesaan di masukan kota dengan maksud hemat ongkir,kami sarankan tidak melakukan hal ini karna kmungkinan besar paket akan lama sampai/paket tidak sampai dan konsumen disuruh ambil ke pusat oleh pihak expedisi.,pergantian expedisi juga bisa terjadi jika pihak expedisi yang dipilih tidak bisa pik-up pada hari itu,misal pilih expedisi A teernyata hari itu expedisi A tidak bisa pik-up maka akan kami pik-up ke expedisi B dengan pertimbangan kecepatan sampai yang sama/setara dengan expedisi A,,COD : TIDAK MENERIMA COD,CUMAN KIRIM-KIRIM MENGUNAKAN EXPEDISI/GOSEN (untuk meng Efisiensiksn waktu),*UNTUK BARANG YANG DIRETUR/DIKEMBALIKAN ONGKOS KIRIM BALIK 100% DI TANGGUNG OLEH PEMBELI(apapun alasanya),TERKECUALI UNTUK BARANG YANG SALAH KIRIM OLEH PENJUAL ONGKIR BALIK DI TANGGUNG OLEH PENJUAL'),
+(3, 2, NULL, NULL, 'Baju Muslim Wanita Dress Delilah Maxi Terbaru Obrap Grosir', 'BAJU DRESS DELILAH MAXI TERBARU\n\n\nBAHAN spandek mix katun\nUKURAN :All size fit L\nLD 100cm-+\nPJ 135- 140cm -+\n\nWARNA PILIH SAJA\n\nSebelum older BACA dulu ya Depkripsi dan Catatanny supaya Jelas dan gak nyesel kepoin\n\n(Foto hanya Referensi saja kami real sesuai bahan&model )\n\nREUDY STOCK\nLangsung older saja ya Kak.!\n\nRECOMENDED..!\n*Dijamin harga Grosir pusat baju hijaber\n*Kualitas bahan berbeda dengan lapak yang lain\n*Khusus tempat nya Resseler(berjualan)\n*Kerja sama Resseler dengan sistem DROPSHIP\n*Pengiriman cepat sesuai dengan depkripsi\n*Low mau ambil kodi atau lusin harga bisa di sesuai kan seperti pelanggan setia kami,hubungi/kontak kami aja\nDicoba dan Buktikan...!\n\n*Ingat waktu transaksi Cantumkan warna\nbila warna kosong kami Konfirmasi kepihak pembeli kecuali ada Cadangan atau kirim random\n\n*Hayo kak liat model lain nya di Label kami banyak dan kumplit silahkan mau menanyakan model model lain nya . karna kami gak di pasang semua.terimakasih\n\nHAPPY SHOPING DEAR...!', 'INFO KODE GRATIS ONGKIR :KIRIMJT,BISMILLAH BACA SEBELUM OLDER KEPOIN DULU YA SUPAYA GAK NYESEL!,-INGAT BAHAN DAN KUALITAS BARANG KAMI BERBEDA DARI YANG LAPAk YANG LAIN GAK TIPIS\n*Hati-Hati jangan terkecoh dengan harga murah\nAda harga - Ada kualitas\nFoto boleh sama , Harga boleh di bawah kami..\nTapi kami pastikan bahan produk & pelayanan kami lebih berkualitas !!!\nKarna produk yang kami buat sesuai dengan standar ukuran dan bahan Hati -hati jangan terkecoh dengan harga murah..,-Kenapa harus melilih kami dan beli disini ?kualitas bahan dan harga tentu berbeda dengan yang lain sesuai dengan barang gak mengecewakan dan rating ulasan barang yang tercantum,-Kami berdagang bukan sekedar untung sendiri? Karna kami berdagang mengajak atau bergabung bekerja sama sesama resseler yang SMART saling menguntungkan dengan sistem DROPSHIPER dengan catatan alamat no hp pengirim dan tujuan yang benar,-Berpikirlah buyer santei dan pintar low ada kendala barang telat dikirim atau chat lama balasnya atau apapun itu kami kan ngasih solusi dan melayani secepat nya,Yang terakhir nih!! jangan percaya dengan feddback negatif atau ulasan yang jelek karna itu pihak pedagang yang pengen menjatohkan barang kami (alias NACKAL),karna kenapa kami sblum packing barang slalu di cek dengan teliti maupun warna dan yang lain nya,-Buat resseler low mau ambil banyak bisa kontak kami aja harga bisa di sesuai kan maupun 1lusin atau kodian Di tunggu older nya ya sayyy,cuman disini loh rejekimu amin!!,*Kasih saran aja ya ka low mau older supaya gak sayang ongkir 1kg bisa jadi 3pcs atau 2 kg bisa jadi 5pcs tergantung gram yang tercantum,minimal 1kg/1300gram dan 2kg /2300gram bebas model ya,-Semua barang yang tercantum (REAL PICT)sesuai model, warna dan bahan,Kemiripan barang 90-95% karna di foto profil ada efek cahaya warna dan kontras dan hanya conto model saja. Jangan nanya ukuran ya itu udah jelas tercantum di catatan.,-(INGAT TRANSAKSI DI USAHAKAN DIBAWAH JAM 14.00) supaya dikirim malam hari itu juga,low lebih dari JAM itu kami kirim besok malam nya. (kecuali barang di cek rijek stok abis kami kirim besok nya atau pun kosong barang nya karna siapa cepat dia dapat keterlabatan datng barang cuman 1 hari 2hari ko pasti ada),-Pengiriman barang antara jam 10 malam nunggu penjemputan pihak kurir Dan Resi paling telat jam 11.00 malam,-Hari kerja kami senin - sabtu hari minggu libur,-Barang yang sudah di beli tidak bisa di (Return) karna bahan dan ukuran udah tercantum dan di cek terlebih dahulu,-Mohon kerja sama nya setelah barang diterima segera lakukan KONFIRMASI BARANG,-Mohon mengisi informasi alamat dan no telpon dengan benar yang dapat di hubungi dan aktip jika terjadi kendala disaat J&T melakukan pengiriman,Hormat kami : AMELIA FASHION HIJAB GROSIR,THANKS FOR ORDER HAPPY SHOPING !!,IG :Amelia_fashionhijab'),
+(4, 2, NULL, NULL, 'Baju Muslim Wanita Dress Amanda Maxi Terbaru Grosir', 'BAJU MUSLIM DRESS AMANDA MAXI TERBARU\n\nBAHAN MAXMARA\n\nALL SIZE FIT L\nLD 95-100cm-+\nPJ 135-140cm-+\n\nWARNA PILIH SAJA\n\n\nSebelum older BACA dulu ya Depkripsi dan Catatanny supaya Jelas dan gak nyesel kepoin\n\n(Foto hanya Referensi saja kami real sesuai bahan&model )\n\nREUDY STOCK\nLangsung older saja ya Kak.!\n\nRECOMENDED..!\n*Dijamin harga Grosir pusat baju hijaber\n*Kualitas bahan berbeda dengan lapak yang lain\n*Khusus tempat nya Resseler(berjualan)\n*Kerja sama Resseler dengan sistem DROPSHIP\n*Pengiriman cepat sesuai dengan depkripsi\n*Low mau ambil kodi atau lusin harga bisa di sesuai kan seperti pelanggan setia kami,hubungi/kontak kami aja\nDicoba dan Buktikan...!\n\n*Ingat waktu transaksi Cantumkan warna\nbila warna kosong kami Konfirmasi kepihak pembeli kecuali ada Cadangan atau kirim random\n\n*Hayo kak liat model lain nya di Label kami banyak dan kumplit silahkan mau menanyakan model model lain nya . karna kami gak di pasang semua.terimakasih\n\nHAPPY SHOPING DEAR...!', 'INFO KODE GRATIS ONGKIR :KIRIMJT,BISMILLAH BACA SEBELUM OLDER KEPOIN DULU YA SUPAYA GAK NYESEL!,-INGAT BAHAN DAN KUALITAS BARANG KAMI BERBEDA DARI YANG LAPAk YANG LAIN GAK TIPIS\n*Hati-Hati jangan terkecoh dengan harga murah\nAda harga - Ada kualitas\nFoto boleh sama , Harga boleh di bawah kami..\nTapi kami pastikan bahan produk & pelayanan kami lebih berkualitas !!!\nKarna produk yang kami buat sesuai dengan standar ukuran dan bahan Hati -hati jangan terkecoh dengan harga murah..,-Kenapa harus melilih kami dan beli disini ?kualitas bahan dan harga tentu berbeda dengan yang lain sesuai dengan barang gak mengecewakan dan rating ulasan barang yang tercantum,-Kami berdagang bukan sekedar untung sendiri? Karna kami berdagang mengajak atau bergabung bekerja sama sesama resseler yang SMART saling menguntungkan dengan sistem DROPSHIPER dengan catatan alamat no hp pengirim dan tujuan yang benar,-Berpikirlah buyer santei dan pintar low ada kendala barang telat dikirim atau chat lama balasnya atau apapun itu kami kan ngasih solusi dan melayani secepat nya,Yang terakhir nih!! jangan percaya dengan feddback negatif atau ulasan yang jelek karna itu pihak pedagang yang pengen menjatohkan barang kami (alias NACKAL),karna kenapa kami sblum packing barang slalu di cek dengan teliti maupun warna dan yang lain nya,-Buat resseler low mau ambil banyak bisa kontak kami aja harga bisa di sesuai kan maupun 1lusin atau kodian Di tunggu older nya ya sayyy,cuman disini loh rejekimu amin!!,*Kasih saran aja ya ka low mau older supaya gak sayang ongkir 1kg bisa jadi 3pcs atau 2 kg bisa jadi 5pcs tergantung gram yang tercantum,minimal 1kg/1300gram dan 2kg /2300gram bebas model ya,-Semua barang yang tercantum (REAL PICT)sesuai model, warna dan bahan,Kemiripan barang 90-95% karna di foto profil ada efek cahaya warna dan kontras dan hanya conto model saja. Jangan nanya ukuran ya itu udah jelas tercantum di catatan.,-(INGAT TRANSAKSI DI USAHAKAN DIBAWAH JAM 14.00) supaya dikirim malam hari itu juga,low lebih dari JAM itu kami kirim besok malam nya. (kecuali barang di cek rijek stok abis kami kirim besok nya atau pun kosong barang nya karna siapa cepat dia dapat keterlabatan datng barang cuman 1 hari 2hari ko pasti ada),-Pengiriman barang antara jam 10 malam nunggu penjemputan pihak kurir Dan Resi paling telat jam 11.00 malam,-Hari kerja kami senin - sabtu hari minggu libur,-Barang yang sudah di beli tidak bisa di (Return) karna bahan dan ukuran udah tercantum dan di cek terlebih dahulu,-Mohon kerja sama nya setelah barang diterima segera lakukan KONFIRMASI BARANG,-Mohon mengisi informasi alamat dan no telpon dengan benar yang dapat di hubungi dan aktip jika terjadi kendala disaat J&T melakukan pengiriman,Hormat kami : AMELIA FASHION HIJAB GROSIR,THANKS FOR ORDER HAPPY SHOPING !!,IG :Amelia_fashionhijab');
 
 -- --------------------------------------------------------
 
@@ -2669,13 +2734,13 @@ ALTER TABLE `toko`
 -- AUTO_INCREMENT for table `data_produk`
 --
 ALTER TABLE `data_produk`
-  MODIFY `id_data_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_data_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `foto_produk`
 --
 ALTER TABLE `foto_produk`
-  MODIFY `id_foto_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_foto_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -2699,13 +2764,13 @@ ALTER TABLE `kurir`
 -- AUTO_INCREMENT for table `kurir_produk`
 --
 ALTER TABLE `kurir_produk`
-  MODIFY `id_kurir_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kurir_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `marketplace`
@@ -2723,7 +2788,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `review`

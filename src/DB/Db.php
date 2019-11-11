@@ -37,8 +37,20 @@ class DB
         // change format join_date
         $tgl_daftar = $this->formatTanggal($storeInfo['join_date']);
         // var_dump($tgl_daftar);
-
-        $updatePerusahaan = "UPDATE perusahaan SET
+        if($kd_alamat['kd_provinsi'] == 65){
+            $updatePerusahaan = "UPDATE perusahaan SET
+                            nama_toko='$storeInfo[shopname]',
+                            keterangan='$storeInfo[description]',
+                            alamat='$storeInfo[location]',
+                            foto='$storeInfo[shop_image]',
+                            tgl_daftar='$tgl_daftar',
+                            kd_kota='$kd_alamat[kd_kota]',
+                            kd_provinsi=64,
+                            lvl_reputasi='$storeInfo[lvl_reputasi]'
+                            WHERE id_perusahaan = '$idPerusahaan'";
+            $this->db->query($updatePerusahaan);
+        }else{
+            $updatePerusahaan = "UPDATE perusahaan SET
                             nama_toko='$storeInfo[shopname]',
                             keterangan='$storeInfo[description]',
                             alamat='$storeInfo[location]',
@@ -48,8 +60,9 @@ class DB
                             kd_provinsi='$kd_alamat[kd_provinsi]',
                             lvl_reputasi='$storeInfo[lvl_reputasi]'
                             WHERE id_perusahaan = '$idPerusahaan'";
-
-        $this->db->query($updatePerusahaan);
+            $this->db->query($updatePerusahaan);
+        }
+        
         // $tes = $this->db->query($updatePerusahaan);
         // var_dump($updatePerusahaan);
 
