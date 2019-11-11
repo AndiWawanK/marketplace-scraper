@@ -44,8 +44,9 @@ class DB{
                             kd_provinsi='$kd_alamat[kd_provinsi]'
                             WHERE id_perusahaan = '$idPerusahaan'";
 
+        $this->db->query($updatePerusahaan);
         // $tes = $this->db->query($updatePerusahaan);
-        var_dump($updatePerusahaan);
+        // var_dump($updatePerusahaan);
 
         
     }
@@ -79,8 +80,6 @@ class DB{
             // var_dump($key);
             // die; 
         }
-        // var_dump($tglDaftar);
-        // die;
     }
 
     // public function insertStore($data)

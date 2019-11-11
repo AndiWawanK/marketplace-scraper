@@ -1,15 +1,589 @@
 Array
 (
-    [name] => A16COM
-    [shopname] => A16COM
-    [description] => 
-      "UNTUK JADWAL PIK UP SILAKAN DI BACA CATATAN PELAPAK YA DI SANA SUDAH KAMI CANTUMKAN JADWAL N KETENTUAN OLDER,BUDAYAKAN MEMBACA"
-    
-    [location] => Bandung
-    [shop_image] => https://s2.bukalapak.com/avt/26599131/small/logo.jpg
-    [join_date] => 23 April 2013
-    [review_count] => 10
-    [product_count] => 910
-    [rating_count] => Unavaible
-    [url] => https://www.bukalapak.com/u/rikky
+    [0] => Array
+        (
+            [kategori] => Handphone
+            [nama] => EARPHONE VIDO/WINDOW (EARPHONENYA KERE-HORE)
+            [deskripsi] => #B167
+"READY STOK"
+*warna biru metalik kabel hitam (HABIS)
+*warna putih kabel putih
+*NON MIC (tampa mic)
+*
+
+
+YANG LAGI NYARI EARPHONE MURAH MERIAH TAPI KUALITAS YAHUD....
+WAKTUNYA NYOBAIN NIH EARPHONE VIDO YANG DULU NAMANYA WINDOW BERUBAH JADI VIDO TAPI KUALITAS TETEP SAMA GAN NGEBAS BANGET TAPI SUARA JELAS ENGGA KETUTUPAN BAS,JANGAN LIAT BENTUKNYA GAN BEKNTUKNYA SIH PASTI YAKIN BAKAL NIPU AGAN-AGAN TP KUALITAS YANG DI HASILKANYA BRO MANYOS.... UNTUK LENGKAPNYA AGAN-AGAN BISA CARI DI GOOGLE TENTANG KUALITAS NIH EARPHONE / CARI DI FORUM KERE-HORE
+
+COCOK BANGET BUAT YG EARPHONE HP ORI ASLINYA ILANG/RUSAK
+HP BB/SAMSUNG/IPOD/IPHONE/DLL G'ASIK KAN KALO HPNYA YAHUD TP DENGER MUSIK PAKE EARPHONE YANG SUARANYA ENGGA ASIK
+
+
+
+
+
+
+ADA SEDIKIT TAMBAHAN NIH DIKIT ANE COBA PASANGIN NIH EARPHONE VIDO DENGAN MP3 SANSA ANE TERNYATA SUARANYA JAUH LEBIH BAIK PAKE EARPHONE VIDO KETIMBANG PAKE EARPHONE BAWAAN SANSA,SEMUA JENIS MUSIK ANE COBA ROOK,POP,JES,AKUSTIK,TERMASUK DANGDUT
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s4.bukalapak.com/img/9723786/w-1000/dagangan_5.jpg
+                    [1] => https://s0.bukalapak.com/img/0033786/w-1000/DAGANGAN_12.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:27:22
+            [rating] => 98.0%
+            [jumlah_review] => 298
+            [diskon] => NULL
+            [harga] => 29.000
+            [jumlah_barang] => 200
+            [kondisi_barang] => BARU
+            [jumlah_view] => 27431
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 732
+        )
+
+    [1] => Array
+        (
+            [kategori] => Elektronik
+            [nama] => Earbud SHARP MX300 MD (Bass Enak Harga Murah,Recomended)
+            [deskripsi] => #A29
+"READY STOK"
+
+untuk yang sudah icip vido,nec,she380,edifiar h180,sangat recomended nih untuk dicoba atau jadi salah satu koleksi earbud kategori kere-hore,harga kere kualitas hore,untuk saya pribadi dr segi kualitas suara di atas harganya yang sangat terjangkau.
+
+BONUS :
+BUSA NORMAL
+BUSA DONUT
+
+PAKET PENJUALAN
+
+BUSA BAWAAN
+(paket akan kami paking dengan plastik glembung,aman hingga tangan anda)
+
+Cheap Price Not Cheap Quality , Special Price For Sharp
+
+Talk About Sharp , Many People Should Still Remember THE CD TIME , Sharp was famous because the CD time , you can image how cd player worked with these kind of sharp earbud , high fidelity sound quality .Recommend
+
+This Earbud Should Be Popular ,Full Test, Cheap Price But High Performance . Worth For Money
+
+Driver Unit Choose Same Level With Sennheiser MX300 , Charctor Follow Sennhesier MX300
+
+For Earbud , this type defined is basshead . Massive bass , Frequency From Low to Mid goes smooth and nature . Treble still can be accept , not too bright not too dark
+
+Anyway Recommend , For Less Budget ,This is a best choice
+
+Specifications
+
+Driver Unit : MX300 15.4mm
+Frequency Response 20-22,000Hz
+Impedance 16ohms
+Cable Length 1.2m
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s0.bukalapak.com/img/591807734/w-1000/Earbud_SHARP_MX300_MD__Bass_enak_harga_murah_recomended__.jpg
+                    [1] => https://s2.bukalapak.com/img/785807734/w-1000/Earbud_SHARP_MX300_MD__Bass_enak_harga_murah_recomended__.jpg
+                    [2] => https://s4.bukalapak.com/img/958807734/w-1000/Earbud_SHARP_MX300_MD__Bass_enak_harga_murah_recomended__.jpg
+                    [3] => https://s0.bukalapak.com/img/537907734/w-1000/Earbud_SHARP_MX300_MD__Bass_enak_harga_murah_recomended__.jpg
+                    [4] => https://s3.bukalapak.com/img/302017734/w-1000/Earbud_SHARP_MX300_MD__Bass_enak_harga_murah_recomended__.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:27:36
+            [rating] => 96.0%
+            [jumlah_review] => 57
+            [diskon] => NULL
+            [harga] => 37.500
+            [jumlah_barang] => 10
+            [kondisi_barang] => BARU
+            [jumlah_view] => 8615
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 243
+        )
+
+    [2] => Array
+        (
+            [kategori] => Handphone
+            [nama] => EARBUD VE MONK PLUS
+            [deskripsi] => #B190
+"READY STOK warna hitam transparan "
+ready warna
+*hitam transparan (READY)
+*unggu (violet) (kosong)
+*emas (gold) (kosong)
+
+
+BONUS DARI TOKO KAMI
+*sepasang busa normar
+*sepasang busa donut
+yang jika anda membeli secara terpisah di toko kami seharga @5500
+
+ve monk mengeluarkan farian produk terbarunya dengan nama ve monk plus, dengan perubahan fisik yang paling mencolok dengan seri sebelumnya di bagian housing,housing dibuat menjadi abu2 transparan
+
+suara lebih refine dari versi sebelumnya
+suara lebih rapi, lebih natural, bassnya lebih kalem..
+
+kelengkapan:
+-unit ve monk plus
+-busa 4 pasang (merah 2, biru 2)
+
+sangat cocok tuk menambah koleksi earbud anda,dengan harga murah mendapatkan kualitas di atas harga
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s2.bukalapak.com/img/257817622/w-1000/EARBUD%20VE%20MONK%20PLUS.jpg
+                    [1] => https://s4.bukalapak.com/img/968817622/w-1000/EARBUD%20VE%20MONK%20PLUS.jpg
+                    [2] => https://s4.bukalapak.com/img/449817622/w-1000/EARBUD%20VE%20MONK%20PLUS.jpg
+                    [3] => https://s3.bukalapak.com/img/855077339/w-1000/EARBUD_VE_MONK_PLUS.JPG
+                    [4] => https://s2.bukalapak.com/img/2628925191/w-1000/EARBUD_VE_MONK_PLUS.png
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:27:49
+            [rating] => 96.0%
+            [jumlah_review] => 70
+            [diskon] => NULL
+            [harga] => 100.000
+            [jumlah_barang] => 10
+            [kondisi_barang] => BARU
+            [jumlah_view] => 11617
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 321
+        )
+
+    [3] => Array
+        (
+            [kategori] => Handphone
+            [nama] => KZ Earphone Storage Hard Case High Quality Tas Earphone KZ
+            [deskripsi] => #B564
+"READY STOK"
+(*STOK RATUSAN LANGSUNG DI OLDER AJA GAN)
+pengiriman dengan expedisi (bukan gosen) paking Bubble Wrap, plastik gelembung tampa tambahan biyaya apapun GRATIS
+
+KZ Earphone Bag is a simple practical hard carrying case, which is made of durable crush-resistant and anti-shock PU material, and features unique ball shape design to custom fit your headset. It can be used to store earphone, earbuds, headphone, iPod, SD card, etc., and keep them safe for convenient to carry. Therefore, it is really a wonderful storage bag for choice
+
+Specifications:
+- Size:101*71*32 mm
+- Color:Black
+- Material:PU
+
+Packing Included:
+- 1* Earphone Case
+
+*untuk area bandung pengiriman bisa mengunakan gojek/grab untuk area yg mendukung layanan (max older jam2)
+NB:silakan membaca CATATAN pelapak untuk mengetahui jadwal pik-up & ketentuan toko,thx
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s3.bukalapak.com/img/3074769618/w-1000/KZ_Earphone_Storage_Hard_Case_High_Quality_Tas_Earphone_KZ.png
+                    [1] => https://s3.bukalapak.com/img/8896669618/w-1000/KZ_Earphone_Storage_Hard_Case_High_Quality_Tas_Earphone_KZ.jpg
+                    [2] => https://s3.bukalapak.com/img/3380769618/w-1000/KZ_Earphone_Storage_Hard_Case_High_Quality_Tas_Earphone_KZ.png
+                    [3] => https://s3.bukalapak.com/img/3168769618/w-1000/KZ_Earphone_Storage_Hard_Case_High_Quality_Tas_Earphone_KZ.png
+                    [4] => https://s3.bukalapak.com/img/8362869618/w-1000/KZ_Earphone_Storage_Hard_Case_High_Quality_Tas_Earphone_KZ.png
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:27:57
+            [rating] => 94.0%
+            [jumlah_review] => 89
+            [diskon] => NULL
+            [harga] => 19.900
+            [jumlah_barang] => 200
+            [kondisi_barang] => BARU
+            [jumlah_view] => 3392
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 156
+        )
+
+    [4] => Array
+        (
+            [kategori] => Handphone
+            [nama] => EARBUD MX500 SENNHEISER DIY PLUS MIC .CASE KARBON - BASS MANTAP
+            [deskripsi] => "READY STOK"
+warna :**HITAM (*BIRU NAVI silakan lihat foto)
+
+pertama kali datang earbud ini admin merasa penasaran dengan suaranya,karna ini barang sempet tertinggal di gudang china jadi begitu datang ke gudang bandung cmn sendirian jadi rasa ingin nyoba ini earbud makin besar,coba colok hp yang di rasain cmn rasa enak suaranya bass nya ,vokalnya pasakustik juga dapet,coba colok tambah ampli juga enak,cmn bisa bilang enak nih earbud untuk harganya yang engga nyampe 100rb.
+
+paket penjualan yang akan anda dapatkan:
+*1.unit earbud
+*2.pasang busa normal hitam
+*1.pasang busa donut merah
+*1.jack protektor untuk melindungi mata jack
+*1case karbon untuk penyimpanan earbud
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)/ninja expres,untuk area yg mendukung layanan (max older jam2)
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s1.bukalapak.com/img/1251662421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC_CASE_KARBON___BASS_MANT.JPG
+                    [1] => https://s1.bukalapak.com/img/1571662421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC_CASE_KARBON___BASS_MANT.JPG
+                    [2] => https://s1.bukalapak.com/img/6591662421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC_CASE_KARBON___BASS_MANT.jpg
+                    [3] => https://s1.bukalapak.com/img/1112662421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC_CASE_KARBON___BASS_MANT.JPG
+                    [4] => https://s1.bukalapak.com/img/6822662421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC_CASE_KARBON___BASS_MANT.JPG
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:4
+            [rating] => 96.0%
+            [jumlah_review] => 118
+            [diskon] => 87.500
+            [harga] => 93.000
+            [jumlah_barang] => 200
+            [kondisi_barang] => BARU
+            [jumlah_view] => 9911
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 309
+        )
+
+    [5] => Array
+        (
+            [kategori] => Sepeda
+            [nama] => Buff Bandana Masker Topeng Skull Tengkorak - Motor. Sepeda. Hiking
+            [deskripsi] => "READY STOK WARNA"
+*PUTIH (*STOK RATUSAN LANGSUNG DI OLDER AJA GAN)
+
+Buff Bandana Masker Topeng Skull Tengkorak ( motor, sepeda, hiking )
+- Bahan lembut & halus ( ane sudah coba )
+- bahan polyester elastis
+- panjang sekitar 47 cm
+- seamless/tanpa jahitan
+- dapat digunakan untuk hiking, gowes, sepeda motor,dan kegiatan outdoor lainnya
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)/ninja expres,untuk area yg mendukung layanan (max older jam2)
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s2.bukalapak.com/img/7904799921/w-1000/Buff_Bandana_Masker_Topeng_Skull_Tengkorak___motor_sepeda_hi.jpg
+                    [1] => https://s2.bukalapak.com/img/2493799921/w-1000/Buff_Bandana_Masker_Topeng_Skull_Tengkorak___motor_sepeda_hi.jpg
+                    [2] => https://s2.bukalapak.com/img/7474799921/w-1000/Buff_Bandana_Masker_Topeng_Skull_Tengkorak___motor_sepeda_hi.JPG
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:14
+            [rating] => 92.0%
+            [jumlah_review] => 127
+            [diskon] => 18.600
+            [harga] => 19.500
+            [jumlah_barang] => 100
+            [kondisi_barang] => BARU
+            [jumlah_view] => 11686
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 336
+        )
+
+    [6] => Array
+        (
+            [kategori] => Handphone
+            [nama] => EARBUD MX500 DIY WITH MIC Material Subwoofer Headphones High Quality
+            [deskripsi] => #B98
+"READY WARNA MERAH, HITAM,NAVY (silakan cek foto)"
+pengiriman dengan expedisi (bukan gosen) paking Bubble Wrap, plastik gelembung tampa tambahan biyaya apapun GRATIS
+
+
+*INFO : untuk stok warna hitam yg baru masuk saat ini,bagian Housing tidak ada tulisan mx500 maupun merek dikarnakan Housing nya kosong di ganti yg hitam polos draiver maupun kabel sama,memesan kami anggap mengetahui
+
+
+PAKET PENJUALAN
+-Unit erphone
+-Busa normar 3pasang
+-jack protektor
+-strap cable/klip kabel kulit sapi asli produksi garut (warna tergantung stok yang sedang ready)
+
+earbud diy mx500 with mic dengan harga murah dengan kualitas material yang sangat baik,sangat cocok untuk pengunaan harian menemani aktifitas anda,suara yang sangat baik,nyaman di gunakan berlama-lama menurut saya pribadi selama pengetesan 2jam kuping tidak merasa lelah,
+
+Straight gold plated needle with wheat Universal Edition
+DIY headphone MX500 headphone DIY headphone gold-plated pin knurled plug
+Heavy bass MX500 headphones
+Copper 4U soft crust quality is very good
+Do not introduce,
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)untuk area yg mendukung layanan (max older jam2)
+NB:silakan membaca CATATAN pelapak untuk mengetahui jadwal pik-up &amp; ketentuan toko,thx
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s0.bukalapak.com/img/0812412662/w-1000/EARBUD_MX500_DIY_WITH_MIC_Material_Subwoofer_Headphones_High.jpg
+                    [1] => https://s1.bukalapak.com/img/6092412662/w-1000/EARBUD_MX500_DIY_WITH_MIC_Material_Subwoofer_Headphones_High.jpg
+                    [2] => https://s4.bukalapak.com/img/4703412662/w-1000/EARBUD_MX500_DIY_WITH_MIC_Material_Subwoofer_Headphones_High.jpg
+                    [3] => https://s4.bukalapak.com/img/9153939803/w-1000/EARBUD_MX500_DIY_WITH_MIC_Material_Subwoofer_Headphones_High.jpg
+                    [4] => https://s0.bukalapak.com/img/5493939803/w-1000/EARBUD_MX500_DIY_WITH_MIC_Material_Subwoofer_Headphones_High.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:22
+            [rating] => 94.0%
+            [jumlah_review] => 27
+            [diskon] => NULL
+            [harga] => 72.500
+            [jumlah_barang] => 50
+            [kondisi_barang] => BARU
+            [jumlah_view] => 6036
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 159
+        )
+
+    [7] => Array
+        (
+            [kategori] => Komputer
+            [nama] => Basic Mobile To PC Headset Cable
+            [deskripsi] => "READY STOK"
+(meng ubah headset smartphone untuk di gunakan di PC dengan jack 3.5mm terpisah antara mic dan audio/suara)
+
++/- 10cm
+Use your favorite 3.5mm smartphone headset with your PC computer
+Compatible with any PC computer with 3.5mm (1/8
+Works with Blackberry/ Droid /Palm /Samsung /LG /HTC 3.5mm stereo headsets
+Use free internet phone programs like Skype, Messengers, Voice
+Note: Mac users, many Mac computers need an amplified microphone source (such as an iMic), you will need both this adapter and PC Headset to USB adapter.
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)/ninja expres,untuk area yg mendukung layanan (max older jam2)
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s2.bukalapak.com/img/2267089921/w-1000/Basic_Mobile_to_PC_Headset_Cable.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:30
+            [rating] => 80.0%
+            [jumlah_review] => 5
+            [diskon] => NULL
+            [harga] => 19.900
+            [jumlah_barang] => 10
+            [kondisi_barang] => BARU
+            [jumlah_view] => 1168
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 39
+        )
+
+    [8] => Array
+        (
+            [kategori] => Olahraga
+            [nama] => Kantong Army Impor
+            [deskripsi] => "READY WARNA"
+*HITAM
+*COKLAT GURUN
+
+sangat cocok untuk aktifitas outdor/aktifitas lapangan,dengan kuwalitas impor yang sangat baik,awet,tahan lama,dan ganteng pastinya
+
+ukuran :12 * 6 * 17.5cm
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)/ninja expres,untuk area yg mendukung layanan (max older jam2)
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s2.bukalapak.com/img/7782546131/w-1000/2017_06_19T01_32_57_07_00.jpg
+                    [1] => https://s2.bukalapak.com/img/2682546131/w-1000/2017_06_19T01_32_57_07_00.jpg
+                    [2] => https://s2.bukalapak.com/img/7682546131/w-1000/2017_06_19T01_32_57_07_00.jpg
+                    [3] => https://s2.bukalapak.com/img/7882546131/w-1000/2017_06_19T01_32_58_07_00.jpg
+                    [4] => https://s2.bukalapak.com/img/7982546131/w-1000/2017_06_19T01_32_58_07_00.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:37
+            [rating] => 94.0%
+            [jumlah_review] => 13
+            [diskon] => NULL
+            [harga] => 52.000
+            [jumlah_barang] => 10
+            [kondisi_barang] => BARU
+            [jumlah_view] => 905
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 23
+        )
+
+    [9] => Array
+        (
+            [kategori] => Handphone
+            [nama] => EARBUD MX500 SENNHEISER DIY PLUS MIC - BASS MANTAP
+            [deskripsi] => #15
+"READY STOK"
+warna :**HITAM ,NAVY,
+STOK RATUSAN LANGSUNG DI OLDER AJA GAN ^^
+
+
+pertama kali datang earbud ini admin merasa penasaran dengan suaranya,karna ini barang sempet tertinggal di gudang china jadi begitu datang ke gudang bandung cmn sendirian jadi rasa ingin nyoba ini earbud makin besar,coba colok hp yang di rasain cmn rasa enak suaranya bass nya ,vokalnya pasakustik juga dapet,coba colok tambah ampli juga enak,cmn bisa bilang enak nih earbud untuk harganya yang engga nyampe 100rb.
+
+paket penjualan yang akan anda dapatkan:
+* earbud
+* busa normal hitam
+* busa donut merah
+* protektor untuk melindungi mata jack
+*STAP kulit sapi
+*ikan pengulung kabel (ini yg tebal bukan yang tipis)
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)/ninja expres,untuk area yg mendukung layanan (max older jam2
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s1.bukalapak.com/img/1406462421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC__BASS_MANTAP.JPG
+                    [1] => https://s1.bukalapak.com/img/6836462421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC__BASS_MANTAP.JPG
+                    [2] => https://s1.bukalapak.com/img/6986462421/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC__BASS_MANTAP.JPG
+                    [3] => https://s0.bukalapak.com/img/5805767582/w-1000/EARBUD_MX500_SENNHEISER_DIY_PLUS_MIC___BASS_MANTAP.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:45
+            [rating] => 96.0%
+            [jumlah_review] => 426
+            [diskon] => 78.200
+            [harga] => 85.000
+            [jumlah_barang] => 10
+            [kondisi_barang] => BARU
+            [jumlah_view] => 22502
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 678
+        )
+
+    [10] => Array
+        (
+            [kategori] => Olahraga
+            [nama] => Strap - Tali Kacamata Untuk Olah Raga
+            [deskripsi] => "READY STOK"
+(cantumkan warna dikolom keterangan ,jika tidak kami kirim random)
+pengiriman dengan expedisi (bukan gosen) paking Bubble Wrap, plastik gelembung tampa tambahan biyaya apapun GRATIS
+
+Strap kacamata untuk para pengguna kacamata yang suka berolah raga.
+Mudah dipasang dan nyaman dipakai.
+
+Tersedia warna :
+*Hitam (READY)
+*Merah (Ready)
+*Cokelat (READY)
+*Biru (READY)
+
+*untuk area bandung pengiriman bisa mengunakan gojek(gosen)untuk area yg mendukung layanan (max older jam2)
+NB:silakan membaca CATATAN pelapak untuk mengetahui jadwal pik-up & ketentuan toko,thx
+            [keterangan] => Unvailable
+            [foto_produk] => Array
+                (
+                    [0] => https://s4.bukalapak.com/img/9936299122/w-1000/a942.jpg
+                    [1] => https://s3.bukalapak.com/img/3666299122/w-1000/a943.jpg
+                    [2] => https://s0.bukalapak.com/img/5976299122/w-1000/a944.jpg
+                )
+
+            [kurir] => Array
+                (
+                    [0] => grab
+                    [1] => go-jek
+                    [2] => sicepat
+                    [3] => jnt
+                    [4] => lionparcel
+                    [5] => ninjavan
+                    [6] => jne
+                )
+
+            [tanggal_crawl] => 2019-11-5 1:28:53
+            [rating] => 82.0%
+            [jumlah_review] => 31
+            [diskon] => 22.500
+            [harga] => 25.000
+            [jumlah_barang] => 50
+            [kondisi_barang] => BARU
+            [jumlah_view] => 2523
+            [waktu_proses] => ± 14 jam 
+            [jumlah_favorit] => 72
+        )
+
 )
