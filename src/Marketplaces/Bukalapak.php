@@ -35,6 +35,13 @@ class Bukalapak
         $page->waitForSelector(".ut-store-name", ['visible' => true]);
 
         $store = $page->evaluate(JsFunction::createWithBody('
+            let lvlReputasi = document.querySelector(".c-label--super-seller");
+            let lvl_reputasi = "";
+            if(!lvlReputasi){
+                lvl_reputasi = "none";
+            }else{
+                lvl_reputasi = lvlReputasi.innerText;
+            }
             return {
                 "name": document.querySelector(".ut-store-name").innerText,
                 "description": document.querySelectorAll(".c-tab__content__body")[1].innerText,
@@ -44,10 +51,11 @@ class Bukalapak
                 "rating_count": "Unavaible",
                 "store_image": document.querySelector(".c-avatar > img").getAttribute("src"),
                 "join_date": document.querySelectorAll(".ut-join")[1].innerText,
+                "lvl_reputasi": lvl_reputasi,
                 "url": window.location.href
             }
         '));
-        // var_dump($store);
+
         echo "Get Products link \n";
 
         $links = [];
@@ -112,6 +120,7 @@ class Bukalapak
             "review_count" => (int) str_replace(".", "", $data["review_count"]),
             "product_count" => $data['product_count'],
             "rating_count" => $data['rating_count'],
+            "lvl_reputasi" => $data['lvl_reputasi'],
             "url" => $data["url"],
         );
 
@@ -159,10 +168,8 @@ class Bukalapak
         // get 10 products
         for ($i = 1; $i <= 2; $i++) {
             $product = $this->getProduct($links[$i]);
-            echo "Getting Product : " . $i . "\n";
-            $this->saveProducts($product);
-            // $products[] = $product;
-            // return $product;
+            $products[] = $product;
+            return $product;
         }
 
         // echo "Get all Product data, total product : " . count($links) . "\n";
@@ -209,7 +216,7 @@ class Bukalapak
                 let diskon = "";
                 let harga = "";
                 if(diskons.length == 1){
-                    diskon = "NULL"
+                    diskon = 0;
                     harga = document.querySelector(".c-product-detail-price > span").innerText.split("Rp")[1]
                 }else{
                     diskon = document.querySelectorAll(".c-product-detail-price > span")[1].innerText.split("Rp")[1]
