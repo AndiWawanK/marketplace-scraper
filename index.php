@@ -54,9 +54,7 @@ while ($stores = $store->fetch(PDO::FETCH_ASSOC)) {
     }
 
 }
-// foreach($storeURL as $url){
 
-// }
 // $bukalapak = new Bukalapak("https://www.bukalapak.com/u/rikky");
 
 // $store_info = $bukalapak->getStoreInformation();
