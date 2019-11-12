@@ -40,7 +40,7 @@ class DB
         if($kd_alamat['kd_provinsi'] == 65){
             $updatePerusahaan = "UPDATE perusahaan SET
                             nama_toko='$storeInfo[shopname]',
-                            keterangan='$storeInfo[description]',
+                            -- keterangan='$storeInfo[description]',
                             alamat='$storeInfo[location]',
                             foto='$storeInfo[shop_image]',
                             tgl_daftar='$tgl_daftar',
@@ -52,7 +52,7 @@ class DB
         }else{
             $updatePerusahaan = "UPDATE perusahaan SET
                             nama_toko='$storeInfo[shopname]',
-                            keterangan='$storeInfo[description]',
+                            -- keterangan='$storeInfo[description]',
                             alamat='$storeInfo[location]',
                             foto='$storeInfo[shop_image]',
                             tgl_daftar='$tgl_daftar',
