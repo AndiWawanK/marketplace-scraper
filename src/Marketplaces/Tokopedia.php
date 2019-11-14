@@ -37,9 +37,6 @@ class Tokopedia
         $page->waitForSelector(".css-149rvan-unf-modal",['visible' => true]);
 
         $store = $page->evaluate(JsFunction::createWithBody('
-            let review = document.querySelector(".css-1oz5w6c-unf-heading").innerText
-
-
             return {
                 "name": document.querySelector(".css-14uf4nq-unf-heading > span").innerText,
                 "author": document.querySelector(".css-c04u4w-unf-heading").innerText,
@@ -48,11 +45,11 @@ class Tokopedia
                 "store_image": document.querySelector(".css-1ew46s1-unf-img > img").getAttribute("src"),
                 "join_date": document.querySelector(".css-jg7uhu-unf-heading").innerText,
                 "store_url": window.location.href,
-                "count_review": review.split()
+                "count_review": document.querySelector(".css-1oz5w6c-unf-heading").innerText
             }
         '));
 
-        var_dump($store);
+        // var_dump($store);
         // die;
 
         // echo "Get Products link \n";
@@ -109,16 +106,13 @@ class Tokopedia
     public function formatOutput($data){
         $result = array(
             "name" => $data['name'],
-            "shopname" => $data['name'],
-            "description" => $data['description'],
+            "author" => $data['author'],
+            "information" => $data['information'],
             "location" => $data['location'],
-            "shop_image" => $data['store_image'],
-            "join_date" => $data['join_date'],
-            "review_count" => (int) str_replace(".", "", $data["review_count"]),
-            "product_count" => $data['product_count'],
-            "rating_count" => $data['rating_count'],
-            "lvl_reputasi" => $data['lvl_reputasi'],
-            "url" => $data["url"],
+            "store_image" => $data['store_image'], 
+            "join_date" => $data['join_date'], 
+            "store_url" => $data['store_url'],
+            "count_review" => intval(preg_replace("/[^A-Za-z0-9\  ]/", "", $data['count_review']))
         );
 
         return $result;
