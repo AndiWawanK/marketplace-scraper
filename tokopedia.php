@@ -17,7 +17,7 @@ $tokopedia = new Tokopedia("https://www.tokopedia.com/revantine");
 
 $store_info = $tokopedia->getStoreInformation();
 // $store_products = $bukalapak->getProducts();
-
+var_dump($store_info);
 // // End clock time in seconds
 $end_time = microtime(true);
 
