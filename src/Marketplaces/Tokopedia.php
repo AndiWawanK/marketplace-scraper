@@ -17,7 +17,7 @@ class Tokopedia
     }
 
     public function getStoreInformation(){
-        $browser = $this->puppeteer->launch(["headless" => true, "args" => ['--no-sandbox', '--disable-setuid-sandbox']]);
+        $browser = $this->puppeteer->launch(["headless" => false, "args" => ['--no-sandbox', '--disable-setuid-sandbox']]);
         $page = $browser->newPage();
 
         echo "Open page \n";
@@ -31,16 +31,24 @@ class Tokopedia
 
         echo "Get store Information \n";
         
-        $page->waitForSelector(".css-1x8q13v-unf-heading", ['visible' => true]);
+        // $page->waitForSelector(".css-z606dp-unf-btn", ['visible' => true]);
 
         $page->click(".css-z606dp-unf-btn");
-        $page->waitForSelector(".css-1x8q13v-unf-heading",['visible' => true]);
+        $page->waitForSelector(".css-149rvan-unf-modal",['visible' => true]);
 
         $store = $page->evaluate(JsFunction::createWithBody('
+            let review = document.querySelector(".css-1oz5w6c-unf-heading").innerText
+
+
             return {
                 "name": document.querySelector(".css-14uf4nq-unf-heading > span").innerText,
                 "author": document.querySelector(".css-c04u4w-unf-heading").innerText,
-                "information": document.querySelector(".css-1x8q13v-unf-heading > span").innerText
+                "information": document.querySelector(".css-1x8q13v-unf-heading > span").innerText,
+                "location": document.querySelector(".css-1x8q13v-unf-heading > div").innerText,
+                "store_image": document.querySelector(".css-1ew46s1-unf-img > img").getAttribute("src"),
+                "join_date": document.querySelector(".css-jg7uhu-unf-heading").innerText,
+                "store_url": window.location.href,
+                "count_review": review.split()
             }
         '));
 
