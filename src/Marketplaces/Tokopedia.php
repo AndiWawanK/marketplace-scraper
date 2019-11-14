@@ -30,12 +30,17 @@ class Tokopedia
         echo "Open page finished \n";
 
         echo "Get store Information \n";
+        
+        $page->waitForSelector(".css-1x8q13v-unf-heading", ['visible' => true]);
 
-        $page->waitForSelector(".css-14uf4nq-unf-heading", ['visible' => true, "timeout" => 9000]);
+        $page->click(".css-z606dp-unf-btn");
+        $page->waitForSelector(".css-1x8q13v-unf-heading",['visible' => true]);
 
         $store = $page->evaluate(JsFunction::createWithBody('
             return {
-                "name": document.querySelector(".css-14uf4nq-unf-heading > span")
+                "name": document.querySelector(".css-14uf4nq-unf-heading > span").innerText,
+                "author": document.querySelector(".css-c04u4w-unf-heading").innerText,
+                "information": document.querySelector(".css-1x8q13v-unf-heading > span").innerText
             }
         '));
 
