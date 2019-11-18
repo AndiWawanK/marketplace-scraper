@@ -52,24 +52,25 @@ class Tokopedia
         // var_dump($store);
         // die;
 
-        // echo "Get Products link \n";
+        echo "Get Products link \n";
 
-        // $links = [];
+        $links = [];
 
-        // $page->waitForSelector(".c-pagination__btn .c-icon--arrow-forward", ['visible' => true]);
+        $page->waitForSelector(".css-merchant-3leNUqwk", ['visible' => true]);
 
 
-        // $productLinks = $page->evaluate(JsFunction::createWithBody('
-        //     let links = [];
-        //     document.querySelectorAll(".c-product-card__name.js-tracker-product-link").forEach(el => {
-        //         links.push(el.getAttribute("href"));
-        //     })
+        $productLinks = $page->evaluate(JsFunction::createWithBody('
+            let links = [];
+            document.querySelectorAll(".css-16wn18y").forEach(el => {
+                links.push(el.getAttribute("href"));
+            })
 
-        //     return links;
-        // '));
+            return links;
+        '));
 
-        // $links = array_merge($links, $productLinks);
-
+        $links = array_merge($links, $productLinks);
+        
+        // var_dump($links);
         // $isDisabled = $page->evaluate(JsFunction::createWithBody('
         //     return !!document.querySelector(".c-pagination__btn .c-icon--arrow-forward").parentElement.getAttribute("disabled");
         // '));
