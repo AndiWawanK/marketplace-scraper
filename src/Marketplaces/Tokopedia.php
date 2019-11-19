@@ -72,6 +72,17 @@ class Tokopedia
 
         $links = array_merge($links, $productLinks);
 
+        $pagination = $page->evaluate(JsFunction::createWithBody('
+            let paginations = []
+            document.querySelectorAll(".css-merchant-2j1V_L1m > a").forEach(pag => {
+                paginations.push(pag.innerText)
+            });
+            return paginations;
+        '));
+
+        var_dump($pagination);
+        die;
+
         $this->Productlinks = $links;
         
         $browser->close();
