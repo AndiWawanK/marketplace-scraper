@@ -60,7 +60,6 @@ class Tokopedia
         $links = [];
 
         $page->waitForSelector(".css-merchant-3leNUqwk", ['visible' => true]);
-
         $productLinks = $page->evaluate(JsFunction::createWithBody('
             let links = [];
             document.querySelectorAll(".css-16wn18y").forEach(el => {
@@ -75,13 +74,53 @@ class Tokopedia
         $pagination = $page->evaluate(JsFunction::createWithBody('
             let paginations = []
             document.querySelectorAll(".css-merchant-2j1V_L1m > a").forEach(pag => {
-                paginations.push(pag.innerText)
+                paginations.push(pag.getAttribute("class"))
             });
             return paginations;
         '));
+       
+        $isleft = $page->evaluate(JsFunction::createWithBody('
+            return document.querySelector(".css-merchant-2j1V_L1m > a").innerText;
+        '));
+        
+        while($isleft != "❮"){
+            $page->waitForSelector(".css-merchant-2j1V_L1m", ["visible" => true]);
 
-        var_dump($pagination);
-        die;
+            if(count($pagination) > 1){
+                $page->click(".".$pagination[1]);
+            }else{
+                $page->click(".".$pagination[0]);
+            }
+
+            if(count($pagination) > 1){
+                $isleft = $page->evaluate(JsFunction::createWithBody('
+                    return document.querySelectorAll(".css-merchant-2j1V_L1m > a")[1].innerText;
+                '));
+            }else{
+                $isleft = $page->evaluate(JsFunction::createWithBody('
+                    return document.querySelector(".css-merchant-2j1V_L1m > a").innerText;
+                '));
+            }
+
+        }
+
+        // if(is_array($pagination)){
+        //     if(count($pagination) > 1){
+        //         // click class index 1
+        //         $page->waitForSelector(".css-merchant-3leNUqwk", ["visible" => true]);
+        //         $page->click(".css-merchant-3leNUqwk");
+        //         // var_dump($pagination[1]);
+        //         // die;
+        //     }else{
+        //         // click class index 0
+        //         $page->waitForSelector(".css-merchant-3leNUqwk", ["visible" => true]);
+        //         $page->click(".css-merchant-3leNUqwk");
+        //         // var_dump($pagination[0]);
+        //         // die;
+        //     }
+        // }
+        
+        
 
         $this->Productlinks = $links;
         
