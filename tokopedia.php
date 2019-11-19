@@ -13,7 +13,7 @@ $start_time = microtime(true);
 // $db = new DB('localhost:8889', 'esmart2', 'root', 'root');
 
 
-$tokopedia = new Tokopedia("https://www.tokopedia.com/revantine");
+$tokopedia = new Tokopedia("https://www.tokopedia.com/revantine/page/2");
 
 $store_info = $tokopedia->getStoreInformation();
 
