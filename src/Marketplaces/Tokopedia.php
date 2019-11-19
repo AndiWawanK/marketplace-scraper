@@ -129,14 +129,18 @@ class Tokopedia
                 "price": document.querySelector(".rvm-price > input").getAttribute("value"),
                 "count_products": null,
                 "product_condition": document.querySelectorAll(".rvm-product-info > .rvm-product-info--item > .inline-block > .rvm-product-info--item_value ")[2].innerText,
-                "view_count": document.querySelectorAll(".rvm-product-info > .rvm-product-info--item > .inline-block > .view-count")[0].innerText
+                "view_count": document.querySelectorAll(".rvm-product-info > .rvm-product-info--item > .inline-block > .view-count")[0].innerText,
+                "time_process": null,
+                "favorite_amount": null
             }
         '));
 
         $browser->close();
         return $this->formatProducts($result);
     }
-    public function formatProducts($data){        
+    public function formatProducts($data){
+        // TODO
+        // Convert view_count to decimal number  
         $result = array(
             "category" => $data["category"], 
             "name" => $data["name"],
@@ -149,7 +153,8 @@ class Tokopedia
             "price" => $data["price"],
             "count_products" => $data["count_products"],
             "product_condition" => strtolower($data["product_condition"]),
-            "view_count" => $data["view_count"]
+            "view_count" => $data["view_count"],
+            "time_process" => $data["time_process"]
         );
         return $result;
     }
