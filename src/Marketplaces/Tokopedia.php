@@ -19,9 +19,9 @@ class Tokopedia
     public function getStoreInformation(){
         $browser = $this->puppeteer->launch(["headless" => false, "args" => ['--no-sandbox', '--disable-setuid-sandbox']]);
         $page = $browser->newPage();
-
+    
         echo "Open page \n";
-
+        $page->setViewport(["width" => 1060, "height" => 768]);
         $page->goto($this->url, array(
             "waitUntil" => "networkidle0",
             "timeout" => 0,
@@ -35,6 +35,7 @@ class Tokopedia
 
         $page->click(".css-z606dp-unf-btn");
         $page->waitForSelector(".css-149rvan-unf-modal",['visible' => true]);
+        
 
         $store = $page->evaluate(JsFunction::createWithBody('
             return {
@@ -50,14 +51,15 @@ class Tokopedia
         '));
 
         // var_dump($store);
-        // die;
+        $page->waitForSelector(".css-149rvan-unf-modal",['visible' => true]);
+        $page->click(".css-10n77n5-unf-modal__icon");
+
 
         echo "Get Products link \n";
 
         $links = [];
 
         $page->waitForSelector(".css-merchant-3leNUqwk", ['visible' => true]);
-
 
         $productLinks = $page->evaluate(JsFunction::createWithBody('
             let links = [];
@@ -69,33 +71,10 @@ class Tokopedia
         '));
 
         $links = array_merge($links, $productLinks);
+
         
-        // var_dump($links);
-        // $isDisabled = $page->evaluate(JsFunction::createWithBody('
-        //     return !!document.querySelector(".c-pagination__btn .c-icon--arrow-forward").parentElement.getAttribute("disabled");
-        // '));
-
-        // while (!$isDisabled) {
-        //     $page->waitForSelector(".c-pagination__btn .c-icon--arrow-forward", ['visible' => true]);
-        //     $page->click(".c-pagination__btn .c-icon--arrow-forward");
-
-        //     $page->waitForSelector(".c-product-card__name.js-tracker-product-link", ['visible' => true]);
-
-        //     $products = $page->evaluate(JsFunction::createWithBody('
-        //         let links = [];
-        //         document.querySelectorAll(".c-product-card__name.js-tracker-product-link").forEach(el => {
-        //             links.push(el.getAttribute("href"));
-        //         })
-        //         return links;
-        //     '));
-
-        //     $links = array_merge($links, $products);
-
-        //     $isDisabled = $page->evaluate(JsFunction::createWithBody('
-        //         return !!document.querySelector(".c-pagination__btn .c-icon--arrow-forward").parentElement.getAttribute("disabled");
-        //     '));
-
-        // }
+            
+        var_dump($links);
        
         // $this->Productlinks = $links;
         
