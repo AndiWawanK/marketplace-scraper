@@ -71,28 +71,56 @@ class Tokopedia
 
         $links = array_merge($links, $productLinks);
 
-        $pagination = $page->evaluate(JsFunction::createWithBody('
-            let paginations = []
-            document.querySelectorAll(".css-merchant-2j1V_L1m > a").forEach(pag => {
-                paginations.push(pag.getAttribute("class"))
-            });
-            return paginations;
-        '));
-       
+        // $pagination = $page->evaluate(JsFunction::createWithBody('
+        //     let paginations = []
+        //     document.querySelectorAll(".css-merchant-2j1V_L1m > a").forEach(pag => {
+        //         paginations.push(pag.getAttribute("href"))
+        //     });
+        //     return paginations;
+        // '));
+        
+        // $isleft = $page->evaluate(JsFunction::createWithBody('
+        //     return document.querySelector(".css-merchant-2j1V_L1m > a").innerText;
+        // '));
         $isleft = $page->evaluate(JsFunction::createWithBody('
             return document.querySelector(".css-merchant-2j1V_L1m > a").innerText;
         '));
-        
         while($isleft != "❮"){
             $page->waitForSelector(".css-merchant-2j1V_L1m", ["visible" => true]);
+            $pagination = $page->evaluate(JsFunction::createWithBody('
+                let paginations = []
+                document.querySelectorAll(".css-merchant-2j1V_L1m > a").forEach(pag => {
+                    paginations.push(pag.getAttribute("href"))
+                });
+                return paginations;
+            '));
 
             if(count($pagination) > 1){
-                $page->click(".".$pagination[1]);
+                $page->click("[href='$pagination[1]']");
             }else{
-                $page->click(".".$pagination[0]);
+                $page->click("[href='$pagination[0]']");
             }
 
-            if(count($pagination) > 1){
+            $page->waitForSelector(".css-merchant-3leNUqwk", ['visible' => true]);
+            $products = $page->evaluate(JsFunction::createWithBody('
+                let links = [];
+                document.querySelectorAll(".css-16wn18y").forEach(el => {
+                    links.push(el.getAttribute("href"));
+                })
+                return links;
+            '));
+            $links = array_merge($links, $products);
+
+
+            $page->waitForSelector(".css-merchant-2j1V_L1m", ["visible" => true]);
+            $ispagination = $page->evaluate(JsFunction::createWithBody('
+                let paginations = []
+                document.querySelectorAll(".css-merchant-2j1V_L1m > a").forEach(pag => {
+                    paginations.push(pag.getAttribute("href"))
+                });
+                return paginations;
+            '));
+            if(count($ispagination) > 1){
                 $isleft = $page->evaluate(JsFunction::createWithBody('
                     return document.querySelectorAll(".css-merchant-2j1V_L1m > a")[1].innerText;
                 '));
@@ -102,26 +130,10 @@ class Tokopedia
                 '));
             }
 
+           
         }
-
-        // if(is_array($pagination)){
-        //     if(count($pagination) > 1){
-        //         // click class index 1
-        //         $page->waitForSelector(".css-merchant-3leNUqwk", ["visible" => true]);
-        //         $page->click(".css-merchant-3leNUqwk");
-        //         // var_dump($pagination[1]);
-        //         // die;
-        //     }else{
-        //         // click class index 0
-        //         $page->waitForSelector(".css-merchant-3leNUqwk", ["visible" => true]);
-        //         $page->click(".css-merchant-3leNUqwk");
-        //         // var_dump($pagination[0]);
-        //         // die;
-        //     }
-        // }
-        
-        
-
+        var_dump($links);
+           
         $this->Productlinks = $links;
         
         $browser->close();
