@@ -16,21 +16,35 @@ $start_time = microtime(true);
 $tokopedia = new Tokopedia("https://www.tokopedia.com/revantine");
 
 $store_info = $tokopedia->getStoreInformation();
-// $store_products = $bukalapak->getProducts();
-var_dump($store_info);
+
+if($store_info) {
+    // $update_store = $db->updateStore($store_info, $stores['id_perusahaan']);
+    // echo "Update Store Information Successful \n";
+    $product_links = $tokopedia->Productlinks;
+
+    for ($i = 0; $i <= 1; $i++) {
+        echo "get Data " . $product_links[$i] . "\n";
+        // if ($db->isExist($product_links[$i])) {
+        //     echo "Product already saved, Skip to next product \n";
+        //     continue;
+        // }
+        $product = $tokopedia->getProduct($product_links[$i]);
+        
+        var_dump($product);
+
+        // echo "Insert to DB \n";
+        // $db->insertProduct($product,$stores['id_toko']);
+        // $db->addToSavedLink($product_links[$i]);
+    }
+}
+
+
+
+
 // // End clock time in seconds
 $end_time = microtime(true);
 
 // // Calculate script execution time
 $execution_time = ($end_time - $start_time);
-
 echo " Execution time of script = " . $execution_time . " sec";
 
-// $store_file = fopen("store.txt", "w");
-// fwrite($store_file,print_r($store_info,true));
-
-// $product_file = fopen("products.txt", "w");
-// fwrite($product_file, print_r($store_products, true));
-
-// $debug_file = fopen("debug.txt","w");
-// fwrite($debug_file," Execution time of script = " . $execution_time . " sec");

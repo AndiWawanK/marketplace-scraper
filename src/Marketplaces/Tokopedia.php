@@ -72,11 +72,7 @@ class Tokopedia
 
         $links = array_merge($links, $productLinks);
 
-        
-            
-        var_dump($links);
-       
-        // $this->Productlinks = $links;
+        $this->Productlinks = $links;
         
         $browser->close();
 
@@ -98,4 +94,63 @@ class Tokopedia
         return $result;
     }
 
+   
+
+    public function getProduct($link){
+        $browser = $this->puppeteer->launch(["headless" => false, "args" => ['--no-sandbox', '--disable-setuid-sandbox']]);
+        $page = $browser->newPage();
+
+        $page->goto($link, array(
+            "waitUntil" => "networkidle0",
+            "timeout" => 0,
+        ));
+
+        $page->waitForSelector(".rvm-product-title", ['visible' => true]);
+
+        $result = $page->evaluate(JsFunction::createWithBody('
+            let current_datetime = new Date();
+            let images = [];
+            let couriers = [];
+            document.querySelectorAll(".slick-track > .content-img > .content-img-wrapper > .content-img-relative > img").forEach(img => {
+                images.push(img.getAttribute("src"));
+            });
+            document.querySelectorAll(".rvm-merchant-box > .rvm-shipping-support > .rvm-shipping-support__img-holder > img").forEach(cur => {
+                couriers.push(cur.getAttribute("title"));
+            });
+            return {
+                "category": document.querySelectorAll(".breadcrumb > li")[4].innerText,
+                "name": document.querySelector(".rvm-product-title > span").innerText,
+                "description": document.querySelector(".product-summary__content").innerText,
+                "product_images": images,
+                "courier": couriers,
+                "date_crawl": current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds(),
+                "rating": document.querySelector(".reviewsummary-rating-score").innerText,
+                "review_count": document.querySelector(".review-container").innerText,
+                "price": document.querySelector(".rvm-price > input").getAttribute("value"),
+                "count_products": null,
+                "product_condition": document.querySelectorAll(".rvm-product-info > .rvm-product-info--item > .inline-block > .rvm-product-info--item_value ")[2].innerText,
+                "view_count": document.querySelectorAll(".rvm-product-info > .rvm-product-info--item > .inline-block > .view-count")[0].innerText
+            }
+        '));
+
+        $browser->close();
+        return $this->formatProducts($result);
+    }
+    public function formatProducts($data){        
+        $result = array(
+            "category" => $data["category"], 
+            "name" => $data["name"],
+            "description" => $data["description"],
+            "product_images" => $data["product_images"], 
+            "courier" => $data["courier"],
+            "date_crawl" => $data["date_crawl"],
+            "rating" => explode("/", $data["rating"])[0],
+            "review_count" => preg_replace("/[^0-9]/","",$data["review_count"]),
+            "price" => $data["price"],
+            "count_products" => $data["count_products"],
+            "product_condition" => strtolower($data["product_condition"]),
+            "view_count" => $data["view_count"]
+        );
+        return $result;
+    }
 }
